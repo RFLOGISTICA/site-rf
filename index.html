@@ -1,420 +1,920 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RF Logística · Transporte e Distribuição com Torre de Controle 24h</title>
-<meta name="description" content="Transportadora de Feira de Santana/BA com frota própria, Torre de Controle 24 horas, robô de IA Ravi e o ecossistema Rodavia 360. Transporte rodoviário e distribuição na Bahia e no Nordeste.">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<title>RF Logística &#8211; Transporte rodoviário de cargas</title>
 <meta name="rf-sistema" content="SITE">
 <meta name="rf-sistema-nome" content="Site institucional RF Logística">
-<meta name="rf-versao" content="v1">
+<meta name="rf-versao" content="v2">
 <meta name="rf-data" content="2026-11-02">
 <meta name="rf-cliente" content="RF Logística">
-<meta property="og:title" content="RF Logística · Torre de Controle 24h">
-<meta property="og:description" content="Frota própria, Torre de Controle 24h, IA Ravi e o ecossistema Rodavia 360.">
-<link rel="icon" href="assets/escudo.png">
-<link rel="canonical" href="https://rflogistica.com.br/">
-<meta property="og:image" content="https://rflogistica.com.br/assets/logo-rf.png">
-<style>
-@font-face{font-family:Inter;font-weight:400;font-display:swap;src:url(assets/fonts/Inter-Regular.woff2) format("woff2")}
-@font-face{font-family:Inter;font-weight:500;font-display:swap;src:url(assets/fonts/Inter-Medium.woff2) format("woff2")}
-@font-face{font-family:Inter;font-weight:600 700;font-display:swap;src:url(assets/fonts/Inter-Bold.woff2) format("woff2")}
-@font-face{font-family:"Inter Display";font-weight:800;font-display:swap;src:url(assets/fonts/InterDisplay-ExtraBold.woff2) format("woff2")}
-@font-face{font-family:"Inter Display";font-weight:900;font-display:swap;src:url(assets/fonts/InterDisplay-Black.woff2) format("woff2")}
-:root{--ouro:#D4A017;--ouro2:#F1C94A;--ouro3:#8a6a0e;--preto:#000;--p1:#0a0a0a;--p2:#121212;--p3:#1b1b1b;--linha:#2a2a2a;--txt:#f2f2f2;--sub:#a9a9a9}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--preto);color:var(--txt);font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
-h1,h2,h3{font-family:"Inter Display",Inter,Arial,sans-serif;letter-spacing:-.02em;line-height:1.08}
-.ouro{color:var(--ouro)}
-.tag{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ouro)}
-.tag:before{content:"";width:22px;height:2px;background:var(--ouro)}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:10px;font-weight:700;font-size:15.5px;transition:.2s}
-.btn-ouro{background:linear-gradient(180deg,var(--ouro2),var(--ouro));color:#000;box-shadow:0 10px 30px rgba(212,160,23,.25)}
-.btn-ouro:hover{transform:translateY(-2px)}
-.btn-linha{border:1.5px solid #3a3a3a;color:#fff}
-.btn-linha:hover{border-color:var(--ouro);color:var(--ouro)}
+<link rel='stylesheet' id='rf-novidades-css' href='/assets/rf/rf-novidades.css' media='all' />
 
-/* topo */
-header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.86);backdrop-filter:blur(10px);border-bottom:1px solid #1d1d1d}
-.topo{display:flex;align-items:center;justify-content:space-between;height:78px}
-.topo img{height:50px}
-nav{display:flex;gap:26px;font-size:14.5px;color:#cfcfcf;font-weight:500}
-nav a:hover{color:var(--ouro)}
-.topo .btn{padding:11px 18px;font-size:14px}
+<meta name='robots' content='max-image-preview:large' />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
 
-/* hero */
-.hero{position:relative;overflow:hidden;padding:84px 0 130px;border-bottom:1px solid #161616}
-.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 78% 30%,rgba(212,160,23,.16),transparent 60%),radial-gradient(600px 400px at 0% 100%,rgba(212,160,23,.07),transparent 60%)}
-.hero .grid{position:relative;display:grid;grid-template-columns:1.02fr 1fr;gap:56px;align-items:center}
-.hero h1{font-size:58px;font-weight:800;margin:18px 0 22px}
-.hero p.lead{font-size:18.5px;color:#cfcfcf;max-width:560px}
-.hero .acoes{display:flex;gap:14px;margin:34px 0 30px;flex-wrap:wrap}
-.selos{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;color:#bdbdbd}
-.selos span{display:flex;align-items:center;gap:8px}
-.selos i{width:20px;height:20px;border-radius:50%;background:rgba(212,160,23,.15);border:1px solid var(--ouro);display:grid;place-items:center;font-style:normal;color:var(--ouro);font-size:11px;font-weight:900}
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:root { --wp--style--global--content-size: 800px;--wp--style--global--wide-size: 1200px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-icon svg){width: 24px;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link rel='stylesheet' id='hello-elementor-css' href='wp-content/themes/hello-elementor/assets/css/reset.css' media='all' />
+<link rel='stylesheet' id='hello-elementor-theme-style-css' href='wp-content/themes/hello-elementor/assets/css/theme.css' media='all' />
+<link rel='stylesheet' id='hello-elementor-header-footer-css' href='wp-content/themes/hello-elementor/assets/css/header-footer.css' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='wp-content/plugins/elementor/assets/css/frontend.min.css' media='all' />
+<link rel='stylesheet' id='elementor-post-5-css' href='wp-content/uploads/elementor/css/post-5.css' media='all' />
+<link rel='stylesheet' id='widget-image-css' href='wp-content/plugins/elementor/assets/css/widget-image.min.css' media='all' />
+<link rel='stylesheet' id='widget-nav-menu-css' href='wp-content/plugins/pro-elements/assets/css/widget-nav-menu.min.css' media='all' />
+<link rel='stylesheet' id='e-animation-shrink-css' href='wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-shrink.min.css' media='all' />
+<link rel='stylesheet' id='e-sticky-css' href='wp-content/plugins/pro-elements/assets/css/modules/sticky.min.css' media='all' />
+<link rel='stylesheet' id='widget-icon-list-css' href='wp-content/plugins/elementor/assets/css/widget-icon-list.min.css' media='all' />
+<link rel='stylesheet' id='widget-icon-box-css' href='wp-content/plugins/elementor/assets/css/widget-icon-box.min.css' media='all' />
+<link rel='stylesheet' id='widget-heading-css' href='wp-content/plugins/elementor/assets/css/widget-heading.min.css' media='all' />
+<link rel='stylesheet' id='e-animation-float-css' href='wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-float.min.css' media='all' />
+<link rel='stylesheet' id='widget-form-css' href='wp-content/plugins/pro-elements/assets/css/widget-form.min.css' media='all' />
+<link rel='stylesheet' id='e-popup-css' href='wp-content/plugins/pro-elements/assets/css/conditionals/popup.min.css' media='all' />
+<link rel='stylesheet' id='e-animation-fadeInLeft-css' href='wp-content/plugins/elementor/assets/lib/animations/styles/fadeInLeft.min.css' media='all' />
+<link rel='stylesheet' id='e-animation-fadeInRight-css' href='wp-content/plugins/elementor/assets/lib/animations/styles/fadeInRight.min.css' media='all' />
+<link rel='stylesheet' id='e-shapes-css' href='wp-content/plugins/elementor/assets/css/conditionals/shapes.min.css' media='all' />
+<link rel='stylesheet' id='e-animation-slideInUp-css' href='wp-content/plugins/elementor/assets/lib/animations/styles/slideInUp.min.css' media='all' />
+<link rel='stylesheet' id='e-animation-fadeInDown-css' href='wp-content/plugins/elementor/assets/lib/animations/styles/fadeInDown.min.css' media='all' />
+<link rel='stylesheet' id='widget-image-box-css' href='wp-content/plugins/elementor/assets/css/widget-image-box.min.css' media='all' />
+<link rel='stylesheet' id='e-animation-fadeInUp-css' href='wp-content/plugins/elementor/assets/lib/animations/styles/fadeInUp.min.css' media='all' />
+<link rel='stylesheet' id='swiper-css' href='wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css' media='all' />
+<link rel='stylesheet' id='e-swiper-css' href='wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css' media='all' />
+<link rel='stylesheet' id='widget-nested-carousel-css' href='wp-content/plugins/pro-elements/assets/css/widget-nested-carousel.min.css' media='all' />
+<link rel='stylesheet' id='widget-image-carousel-css' href='wp-content/plugins/elementor/assets/css/widget-image-carousel.min.css' media='all' />
+<link rel='stylesheet' id='e-motion-fx-css' href='wp-content/plugins/pro-elements/assets/css/modules/motion-fx.min.css' media='all' />
+<link rel='stylesheet' id='elementor-post-386-css' href='wp-content/uploads/elementor/css/post-386.css' media='all' />
+<link rel='stylesheet' id='elementor-post-24-css' href='wp-content/uploads/elementor/css/post-24.css' media='all' />
+<link rel='stylesheet' id='elementor-post-21-css' href='wp-content/uploads/elementor/css/post-21.css' media='all' />
+<link rel='stylesheet' id='elementor-post-108-css' href='wp-content/uploads/elementor/css/post-108.css' media='all' />
+<link rel='stylesheet' id='rf-fonts-css' href='assets/fonts.css' media='all' />
+<script id="jquery-core-js" src="wp-includes/js/jquery/jquery.min.js"></script>
+<script id="jquery-migrate-js" src="wp-includes/js/jquery/jquery-migrate.min.js"></script>
+<meta name="generator" content="WordPress 7.0.8" />
+<link rel="canonical" href="index.html" />
+<link rel='shortlink' href='index.html' />
+<meta name="generator" content="Elementor 4.3.5; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="wp-content/uploads/2026/03/Logo-RF-Fav-150x150.png" sizes="32x32" />
+<link rel="icon" href="wp-content/uploads/2026/03/Logo-RF-Fav-300x300.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="wp-content/uploads/2026/03/Logo-RF-Fav-300x300.png" />
+<meta name="msapplication-TileImage" content="https://rflogistica.com.br/wp-content/uploads/2026/03/Logo-RF-Fav-300x300.png" />
+<style id="wp-custom-css">
+a:focus {
+box-shadow: 0 0 0 0 !important;
+border: 0 none !important;
+outline: 0 !important;
+}
 
-/* painel torre (mock) */
-.painel{position:relative;background:linear-gradient(180deg,#141414,#0b0b0b);border:1px solid #2c2c2c;border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(212,160,23,.08) inset;overflow:hidden}
-.painel .barra{display:flex;align-items:center;justify-content:space-between;padding:13px 18px;border-bottom:1px solid #242424;font-size:12.5px;color:#bbb}
-.painel .barra b{color:#fff;font-size:13.5px;letter-spacing:.02em}
-.vivo{display:inline-flex;align-items:center;gap:7px;color:var(--ouro);font-weight:700}
-.vivo:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ouro);box-shadow:0 0 0 4px rgba(212,160,23,.2);animation:pulso 1.6s infinite}
-@keyframes pulso{50%{box-shadow:0 0 0 8px rgba(212,160,23,0)}}
-.painel .corpo{display:grid;grid-template-columns:1.25fr 1fr}
-.mapa{position:relative;height:300px;background:#0d0d0d;border-right:1px solid #222;background-image:linear-gradient(#1a1a1a 1px,transparent 1px),linear-gradient(90deg,#1a1a1a 1px,transparent 1px);background-size:28px 28px}
-.mapa svg{position:absolute;inset:0;width:100%;height:100%}
-.lista{padding:12px 12px 6px}
-.vei{display:flex;align-items:center;justify-content:space-between;padding:9px 10px;border-radius:9px;background:#151515;border:1px solid #222;margin-bottom:7px;font-size:12px}
-.vei b{display:block;font-size:12.5px;color:#fff;letter-spacing:.04em}
-.vei small{color:#8d8d8d}
-.st{font-size:10.5px;font-weight:800;padding:4px 8px;border-radius:20px;letter-spacing:.04em}
-.st.rota{background:rgba(212,160,23,.15);color:var(--ouro);border:1px solid rgba(212,160,23,.4)}
-.st.ent{background:#fff;color:#000}
-.st.base{background:#262626;color:#bbb}
-.painel .rodape{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #242424}
-.painel .rodape div{padding:12px 14px;border-right:1px solid #222}
-.painel .rodape div:last-child{border:0}
-.painel .rodape b{display:block;font-size:20px;color:#fff}
-.painel .rodape small{font-size:11px;color:#8d8d8d}
-.pw{position:relative}
-.ravi-bolha{position:absolute;z-index:3;right:-18px;bottom:-96px;display:flex;align-items:flex-end;gap:6px}
-.ravi-bolha img{width:118px;filter:drop-shadow(0 12px 24px rgba(0,0,0,.6))}
-.ravi-bolha .msg{background:#fff;color:#000;font-size:12.5px;line-height:1.35;padding:10px 13px;border-radius:14px 14px 2px 14px;max-width:230px;margin-bottom:36px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
-.ravi-bolha .msg b{color:var(--ouro3)}
+body, html {
+overflow-x: hidden !important;
+}
 
-/* faixa de números */
-.numeros{background:linear-gradient(90deg,#0b0b0b,#111,#0b0b0b);border-bottom:1px solid #1a1a1a}
-.numeros .wrap{display:grid;grid-template-columns:repeat(5,1fr)}
-.numeros div.n{padding:30px 18px;border-right:1px solid #1e1e1e;text-align:center}
-.numeros div.n:last-child{border:0}
-.numeros b{display:block;font-family:"Inter Display",Inter;font-size:38px;font-weight:800;color:var(--ouro);line-height:1}
-.numeros span{font-size:13.5px;color:#bbb}
+/Corrigir escrollamento no Mobile/
+@media (max-width: 786px){
+body, html {
+overflow-x: hidden!important;
+}
+}
 
-section.bloco{padding:96px 0;border-bottom:1px solid #141414}
-.titulo{max-width:760px;margin-bottom:52px}
-.titulo h2{font-size:44px;font-weight:800;margin:14px 0 16px}
-.titulo p{font-size:17.5px;color:#bdbdbd}
+/* personalizar a barra em geral, aqui estou definindo 10px de largura para a barra vertical
+e 10px de altura para a barra horizontal */
+::-webkit-scrollbar {
+width:8px;
+height: 10px;
+}
 
-/* torre */
-.torre .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:linear-gradient(180deg,#121212,#0c0c0c);border:1px solid #232323;border-radius:16px;padding:28px;transition:.2s}
-.card:hover{border-color:rgba(212,160,23,.5);transform:translateY(-3px)}
-.ico{width:46px;height:46px;border-radius:12px;background:rgba(212,160,23,.12);border:1px solid rgba(212,160,23,.35);display:grid;place-items:center;margin-bottom:18px}
-.ico svg{width:24px;height:24px;stroke:var(--ouro);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.card h3{font-size:19px;margin-bottom:8px}
-.card p{font-size:15px;color:#aaa}
+/* aqui é para personalizar o fundo da barra, neste caso estou colocando um fundo cinza escuro*/
+::-webkit-scrollbar-track {
+background:#1b1b1b
+;
+}
 
-/* ravi */
-.ravi{background:radial-gradient(700px 420px at 15% 50%,rgba(212,160,23,.12),transparent 65%)}
-.ravi .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
-.ravi-fig{position:relative;display:grid;place-items:center}
-.ravi-fig:before{content:"";position:absolute;width:360px;height:360px;border-radius:50%;border:1px dashed rgba(212,160,23,.35)}
-.ravi-fig:after{content:"";position:absolute;width:270px;height:270px;border-radius:50%;background:radial-gradient(circle,rgba(212,160,23,.25),transparent 70%)}
-.ravi-fig img{position:relative;z-index:1;width:330px}
-.chat{background:#0e0e0e;border:1px solid #242424;border-radius:16px;padding:18px;margin-top:28px;max-width:520px}
-.chat .l{display:flex;margin-bottom:10px}
-.chat .l.dir{justify-content:flex-end}
-.chat .b{font-size:14px;padding:10px 14px;border-radius:14px;max-width:80%}
-.chat .esq .b{background:#1c1c1c;border-radius:14px 14px 14px 3px}
-.chat .dir .b{background:var(--ouro);color:#000;border-radius:14px 14px 3px 14px}
-.chat .quem{font-size:11px;color:#888;margin-bottom:3px}
-.lista-check{list-style:none;margin-top:22px;display:grid;gap:11px}
-.lista-check li{display:flex;gap:12px;font-size:15.5px;color:#d0d0d0}
-.lista-check li:before{content:"✓";color:#000;background:var(--ouro);width:20px;height:20px;flex:0 0 20px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:900;margin-top:2px}
-
-/* ecossistema */
-.eco{background:#050505}
-.eco-marca{display:inline-flex;align-items:baseline;gap:4px;font-family:"Inter Display",Inter;font-weight:900;font-size:30px;letter-spacing:-.02em}
-.eco-marca span{color:var(--ouro)}
-.orbita{position:relative;height:600px;margin:30px 0 40px}
-.nucleo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:220px;height:220px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#2a2108,#0b0b0b 70%);border:2px solid var(--ouro);display:grid;place-items:center;text-align:center;box-shadow:0 0 80px rgba(212,160,23,.25)}
-.nucleo b{display:block;font-family:"Inter Display",Inter;font-size:27px;font-weight:900}
-.nucleo b span{color:var(--ouro)}
-.nucleo small{font-size:12px;color:#bbb;letter-spacing:.12em;text-transform:uppercase}
-.anel{position:absolute;left:50%;top:50%;width:470px;height:470px;transform:translate(-50%,-50%);border-radius:50%;border:1px dashed #3a3a3a}
-.mod{position:absolute;width:230px;background:#111;border:1px solid #2a2a2a;border-radius:14px;padding:16px 16px 14px;transform:translate(-50%,-50%)}
-.mod h4{font-size:15px;color:#fff;margin-bottom:4px;display:flex;align-items:center;gap:8px}
-.mod h4:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--ouro)}
-.mod p{font-size:12.8px;color:#9d9d9d;line-height:1.45}
-.eco-frase{text-align:center;font-size:19px;color:#cfcfcf;max-width:820px;margin:20px auto 0}
-.eco-frase b{color:var(--ouro)}
-
-/* serviços */
-.serv .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.serv .card h3{font-size:21px}
-.segmentos{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
-.segmentos span{padding:10px 16px;border:1px solid #2c2c2c;border-radius:30px;font-size:14px;color:#cfcfcf;background:#0e0e0e}
-
-/* diferenciais */
-.dif .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-
-/* contato */
-.contato .grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-.form{background:#0f0f0f;border:1px solid #242424;border-radius:18px;padding:30px}
-.form h3{font-size:22px;margin-bottom:18px}
-.form label{display:block;font-size:12.5px;color:#9a9a9a;margin:12px 0 6px}
-.form input,.form select,.form textarea{width:100%;background:#070707;border:1px solid #2b2b2b;border-radius:9px;padding:13px;color:#fff;font:inherit;font-size:14.5px}
-.form .dois{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.form button{margin-top:20px;width:100%;justify-content:center;border:0;cursor:pointer}
-.info>div{display:flex;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid #1d1d1d}
-.info b{display:block;font-size:16px;color:#fff}
-.info small{color:#9d9d9d;font-size:14.5px}
-
-footer{padding:40px 0;color:#8a8a8a;font-size:13.5px}
-footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-footer img{height:40px}
-.selo-v{font-size:11px;color:#555}
-
-.zap{position:fixed;right:22px;bottom:22px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--ouro);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.5)}
-.zap svg{width:30px;height:30px;fill:#000}
-
-@media(max-width:980px){
- nav{display:none}
- .hero .grid,.ravi .grid,.contato .grid{grid-template-columns:1fr}
- .hero h1{font-size:40px}
- .torre .grid,.serv .grid{grid-template-columns:1fr}
- .dif .grid{grid-template-columns:1fr 1fr}
- .numeros .wrap{grid-template-columns:repeat(2,1fr)}
- .titulo h2{font-size:32px}
- .orbita{height:auto;display:grid;gap:12px}
- .orbita .anel{display:none}
- .nucleo,.mod{position:relative;left:auto;top:auto;transform:none;width:auto}
- .nucleo{width:200px;height:200px;margin:0 auto 10px}
- .ravi-bolha{display:none}
+/* aqui é a alça da barra, que demonstra a altura que você está na página
+estou colocando uma cor azul clara nela*/
+::-webkit-scrollbar-thumb {
+background: #F2C627
+;
+}
+.page-title-section .page-header {
+opacity: 0 !important;
 }
 </style>
 </head>
-<body>
+<body class="home wp-singular page-template page-template-elementor_header_footer page page-id-386 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-full-width elementor-kit-5 elementor-page elementor-page-386">
 
-<header>
- <div class="wrap topo">
-  <a href="#inicio"><img src="assets/logo-rf.png" alt="RF Logística — Transporte e Distribuição"></a>
-  <nav>
-   <a href="#torre">Torre de Controle</a>
-   <a href="#ravi">Ravi IA</a>
-   <a href="#ecossistema">Rodavia 360</a>
-   <a href="#servicos">Serviços</a>
-   <a href="#contato">Contato</a>
-  </nav>
-  <a class="btn btn-ouro" href="#contato">Pedir cotação</a>
- </div>
-</header>
 
-<section class="hero" id="inicio">
- <div class="wrap grid">
+<a class="skip-link screen-reader-text" href="index.html#content">Ir para o conteúdo</a>
+
+		<header data-elementor-type="header" data-elementor-id="24" class="elementor elementor-24 elementor-location-header" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-4d6e91e0 e-con-full e-flex e-con e-parent" data-id="4d6e91e0" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_effects_offset&quot;:35,&quot;sticky_anchor_link_offset&quot;:35,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0}">
+		<div class="elementor-element elementor-element-6c301102 e-con-full e-flex e-con e-child" data-id="6c301102" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-13e9931d e-con-full e-flex e-con e-child" data-id="13e9931d" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-7a0f3de1 elementor-widget-tablet__width-initial elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="7a0f3de1" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+																<a href="index.html">
+							<img fetchpriority="high" width="2560" height="835" src="wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-scaled.png" class="attachment-full size-full wp-image-1465" alt="" srcset="wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-scaled.png 2560w, wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-300x98.png 300w, wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-1024x334.png 1024w, wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-768x250.png 768w, wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-1536x501.png 1536w, wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-2048x668.png 2048w" sizes="(max-width: 2560px) 100vw, 2560px" />								</a>
+															</div>
+				</div>
+		<div class="elementor-element elementor-element-90518f2 e-con-full e-flex e-con e-child" data-id="90518f2" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-6617662e elementor-nav-menu__align-center elementor-nav-menu--stretch elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="6617662e" data-element_type="widget" data-e-type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
+				<ul id="menu-1-6617662e" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-386 current_page_item menu-item-628"><a href="index.html" aria-current="page" class="elementor-item elementor-item-active">Início</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-621"><a href="/sobre/" class="elementor-item">Sobre</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-622"><a href="/servicos/" class="elementor-item">Serviços</a></li>
+<li class="menu-item menu-item-rfx"><a href="/#tecnologia" class="elementor-item">Tecnologia</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-623"><a href="/faq/" class="elementor-item">FAQ</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg><svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-6617662e" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-386 current_page_item menu-item-628"><a href="index.html" aria-current="page" class="elementor-item elementor-item-active" tabindex="-1">Início</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-621"><a href="/sobre/" class="elementor-item" tabindex="-1">Sobre</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-622"><a href="/servicos/" class="elementor-item" tabindex="-1">Serviços</a></li>
+<li class="menu-item menu-item-rfx"><a href="/#tecnologia" class="elementor-item" tabindex="-1">Tecnologia</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-623"><a href="/faq/" class="elementor-item" tabindex="-1">FAQ</a></li>
+</ul>			</nav>
+						</div>
+				<div class="elementor-element elementor-element-79144c2 elementor-widget elementor-widget-button" data-id="79144c2" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjEwOCIsInRvZ2dsZSI6ZmFsc2V9" target="_blank">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fab-whatsapp" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>			</span>
+									<span class="elementor-button-text">COTAÇÃO</span>
+					</span>
+					</a>
+								</div>
+				</div>
+				</div>
+				</div>
+				</header>
+				<div data-elementor-type="wp-page" data-elementor-id="386" class="elementor elementor-386" data-elementor-post-type="page">
+				<div class="elementor-element elementor-element-d389f42 e-con-full e-flex e-con e-parent" data-id="d389f42" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;none&quot;,&quot;shape_divider_bottom&quot;:&quot;curve&quot;,&quot;shape_divider_bottom_negative&quot;:&quot;yes&quot;}">
+				<div class="elementor-shape elementor-shape-bottom" aria-hidden="true" data-negative="true">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+	<path class="elementor-shape-fill" d="M500,97C126.7,96.3,0.8,19.8,0,0v100l1000,0V1C1000,19.4,873.3,97.8,500,97z"/>
+</svg>		</div>
+		<div class="elementor-element elementor-element-bdd29b0 e-con-full e-flex elementor-invisible e-con e-child" data-id="bdd29b0" data-element_type="container" data-e-type="container" data-settings="{&quot;animation&quot;:&quot;fadeInLeft&quot;,&quot;animation_delay&quot;:300}">
+				<div class="elementor-element elementor-element-1b914aa elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="1b914aa" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Soluções Logísticas</h2>				</div>
+				<div class="elementor-element elementor-element-c2a588b elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="c2a588b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Conectando sua empresa à máxima eficiência</h2>				</div>
+				<div class="elementor-element elementor-element-273812f elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="273812f" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+									<p>Com matriz em Feira de Santana, a RF Logística opera com frota própria e inteligência regional para garantir entregas com baixo índice de avarias em todo o estado da Bahia e Nordeste.</p>								</div>
+		<div class="elementor-element elementor-element-53a0621 e-con-full e-flex e-con e-child" data-id="53a0621" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-7af5253 elementor-mobile-align-center elementor-widget elementor-widget-button" data-id="7af5253" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjEwOCIsInRvZ2dsZSI6ZmFsc2V9" target="_blank">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fab-whatsapp" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>			</span>
+									<span class="elementor-button-text">SOLICITAR COTAÇÃO IMEDIATA</span>
+					</span>
+					</a>
+								</div>
+				<div class="elementor-element elementor-element-394f0fb elementor-widget elementor-widget-button" data-id="394f0fb" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="/servicos">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Descubra nossas soluções</span>
+					</span>
+					</a>
+								</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-a5ece45 elementor-view-framed elementor-fixed elementor-shape-circle elementor-invisible elementor-widget elementor-widget-icon" data-id="a5ece45" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;fixed&quot;,&quot;_animation&quot;:&quot;fadeInRight&quot;,&quot;_animation_delay&quot;:2000}" data-widget_type="icon.default">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjEwOCIsInRvZ2dsZSI6ZmFsc2V9" target="_blank">
+			<svg aria-hidden="true" class="e-font-icon-svg e-fab-whatsapp" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>			</a>
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-478d368 e-con-full e-flex e-con e-parent" data-id="478d368" data-element_type="container" data-e-type="container">
+		<div class="elementor-element elementor-element-09203ef e-con-full e-flex e-con e-child" data-id="09203ef" data-element_type="container" data-e-type="container">
+		<div class="elementor-element elementor-element-65ce298 e-con-full e-flex e-con e-child" data-id="65ce298" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-b83ae9d elementor-widget__width-initial elementor-invisible elementor-widget elementor-widget-image" data-id="b83ae9d" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;slideInUp&quot;}" data-widget_type="image.default">
+															<img decoding="async" width="726" height="857" src="wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-2.png" class="attachment-full size-full wp-image-1466" alt="" srcset="wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-2.png 726w, wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-2-254x300.png 254w" sizes="(max-width: 726px) 100vw, 726px" />															</div>
+				</div>
+		<div class="elementor-element elementor-element-cde3256 e-con-full e-flex e-con e-child" data-id="cde3256" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-8e8a822 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="8e8a822" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">RF Logística</h2>				</div>
+				<div class="elementor-element elementor-element-fe0ab7d elementor-widget__width-initial elementor-widget-tablet__width-auto elementor-invisible elementor-widget elementor-widget-heading" data-id="fe0ab7d" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Inteligência e flexibilidade operacional</h2>				</div>
+				<div class="elementor-element elementor-element-4fbe5fa elementor-widget__width-initial elementor-widget-tablet__width-auto elementor-widget elementor-widget-text-editor" data-id="4fbe5fa" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+									<p>Nascemos com a missão de elevar o padrão do transporte corporativo no Nordeste. Estrategicamente sediada em Feira de Santana, a RF Logística une rastreamento avançado, controle rigoroso e um profundo conhecimento das rotas baianas para entregar resultados previsíveis a grandes indústrias, e-commerces e redes varejistas.</p>								</div>
+				<div class="elementor-element elementor-element-d6081ef elementor-widget elementor-widget-button" data-id="d6081ef" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="/sobre">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Conhecer nossa história</span>
+					</span>
+					</a>
+								</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-8b7e59b e-con-full e-flex e-con e-child" data-id="8b7e59b" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-429ba00 animated-slow elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-view-default elementor-mobile-position-block-start elementor-invisible elementor-widget elementor-widget-icon-box" data-id="429ba00" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;slideInUp&quot;,&quot;_animation_delay&quot;:800}" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span  class="elementor-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-far-clock" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<h3 class="elementor-icon-box-title">
+						<span  >
+							Pontualidade Crítica						</span>
+					</h3>
+				
+									<p class="elementor-icon-box-description">
+						Prazos cumpridos com rigor para abastecer seus CDs e lojas sem atrasos.					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-dc00ccc animated-slow elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-view-default elementor-mobile-position-block-start elementor-invisible elementor-widget elementor-widget-icon-box" data-id="dc00ccc" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;slideInUp&quot;,&quot;_animation_delay&quot;:800}" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span  class="elementor-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-cubes" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M488.6 250.2L392 214V105.5c0-15-9.3-28.4-23.4-33.7l-100-37.5c-8.1-3.1-17.1-3.1-25.3 0l-100 37.5c-14.1 5.3-23.4 18.7-23.4 33.7V214l-96.6 36.2C9.3 255.5 0 268.9 0 283.9V394c0 13.6 7.7 26.1 19.9 32.2l100 50c10.1 5.1 22.1 5.1 32.2 0l103.9-52 103.9 52c10.1 5.1 22.1 5.1 32.2 0l100-50c12.2-6.1 19.9-18.6 19.9-32.2V283.9c0-15-9.3-28.4-23.4-33.7zM358 214.8l-85 31.9v-68.2l85-37v73.3zM154 104.1l102-38.2 102 38.2v.6l-102 41.4-102-41.4v-.6zm84 291.1l-85 42.5v-79.1l85-38.8v75.4zm0-112l-102 41.4-102-41.4v-.6l102-38.2 102 38.2v.6zm240 112l-85 42.5v-79.1l85-38.8v75.4zm0-112l-102 41.4-102-41.4v-.6l102-38.2 102 38.2v.6z"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<h3 class="elementor-icon-box-title">
+						<span  >
+							Baixo Índice de Avarias						</span>
+					</h3>
+				
+									<p class="elementor-icon-box-description">
+						Processos preventivos e manuseio especializado para que sua carga chegue intacta.					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-3ae193b animated-slow elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-view-default elementor-mobile-position-block-start elementor-invisible elementor-widget elementor-widget-icon-box" data-id="3ae193b" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;slideInUp&quot;,&quot;_animation_delay&quot;:800}" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span  class="elementor-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-far-eye" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M288 144a110.94 110.94 0 0 0-31.24 5 55.4 55.4 0 0 1 7.24 27 56 56 0 0 1-56 56 55.4 55.4 0 0 1-27-7.24A111.71 111.71 0 1 0 288 144zm284.52 97.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400c-98.65 0-189.09-55-237.93-144C98.91 167 189.34 112 288 112s189.09 55 237.93 144C477.1 345 386.66 400 288 400z"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<h3 class="elementor-icon-box-title">
+						<span  >
+							Rastreamento Total						</span>
+					</h3>
+				
+									<p class="elementor-icon-box-description">
+						Visibilidade e controle de ponta a ponta durante todo o trajeto rodoviário e urbano					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-0286f1e e-con-full e-flex e-con e-parent" data-id="0286f1e" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;shape_divider_top&quot;:&quot;curve&quot;,&quot;shape_divider_bottom&quot;:&quot;curve&quot;,&quot;shape_divider_bottom_negative&quot;:&quot;yes&quot;}">
+				<div class="elementor-shape elementor-shape-top" aria-hidden="true" data-negative="false">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+    <path class="elementor-shape-fill" d="M1000,4.3V0H0v4.3C0.9,23.1,126.7,99.2,500,100S1000,22.7,1000,4.3z"/>
+</svg>		</div>
+				<div class="elementor-shape elementor-shape-bottom" aria-hidden="true" data-negative="true">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+	<path class="elementor-shape-fill" d="M500,97C126.7,96.3,0.8,19.8,0,0v100l1000,0V1C1000,19.4,873.3,97.8,500,97z"/>
+</svg>		</div>
+		<div class="elementor-element elementor-element-d377321 e-con-full e-flex elementor-invisible e-con e-child" data-id="d377321" data-element_type="container" data-e-type="container" data-settings="{&quot;animation&quot;:&quot;fadeInLeft&quot;}">
+				<div class="elementor-element elementor-element-736f5f4 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="736f5f4" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Por que a <span style="color:#F2C627">RF Logística?</span></h2>				</div>
+				<div class="elementor-element elementor-element-274102e elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="274102e" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+									Sabemos que gerenciar indústrias e canais de vendas exige foco total no crescimento comercial. É por isso que cuidamos de toda a complexidade logística para que sua equipe não precise se preocupar com atrasos, gargalos ou quebras na distribuição.								</div>
+				<div class="elementor-element elementor-element-711e2d8 elementor-mobile-align-center elementor-widget elementor-widget-button" data-id="711e2d8" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjEwOCIsInRvZ2dsZSI6ZmFsc2V9" target="_blank">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fab-whatsapp" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>			</span>
+									<span class="elementor-button-text">CONTATO</span>
+					</span>
+					</a>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-8d245d5 elementor-align-start elementor-widget__width-initial elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-invisible elementor-widget elementor-widget-icon-list" data-id="8d245d5" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}" data-widget_type="icon-list.default">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-truck" viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M624 352h-16V243.9c0-12.7-5.1-24.9-14.1-33.9L494 110.1c-9-9-21.2-14.1-33.9-14.1H416V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h16c0 53 43 96 96 96s96-43 96-96h128c0 53 43 96 96 96s96-43 96-96h48c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zM160 464c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm320 0c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm80-208H416V144h44.1l99.9 99.9V256z"></path></svg>						</span>
+										<span class="elementor-icon-list-text"><b>Frota Própria e Adequada:</b> Operamos com 25 veículos versáteis dos tipos 3/4, Toco e VUC, assegurando o veículo ideal para cada tipo de carga.</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-route" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 320h-96c-17.6 0-32-14.4-32-32s14.4-32 32-32h96s96-107 96-160-43-96-96-96-96 43-96 96c0 25.5 22.2 63.4 45.3 96H320c-52.9 0-96 43.1-96 96s43.1 96 96 96h96c17.6 0 32 14.4 32 32s-14.4 32-32 32H185.5c-16 24.8-33.8 47.7-47.3 64H416c52.9 0 96-43.1 96-96s-43.1-96-96-96zm0-256c17.7 0 32 14.3 32 32s-14.3 32-32 32-32-14.3-32-32 14.3-32 32-32zM96 256c-53 0-96 43-96 96s96 160 96 160 96-107 96-160-43-96-96-96zm0 128c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"></path></svg>						</span>
+										<span class="elementor-icon-list-text"><b>Flexibilidade Operacional:</b> Capacidade ágil de adaptação às flutuações e picos de demanda da sua empresa.</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-map-marked-alt" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M288 0c-69.59 0-126 56.41-126 126 0 56.26 82.35 158.8 113.9 196.02 6.39 7.54 17.82 7.54 24.2 0C331.65 284.8 414 182.26 414 126 414 56.41 357.59 0 288 0zm0 168c-23.2 0-42-18.8-42-42s18.8-42 42-42 42 18.8 42 42-18.8 42-42 42zM20.12 215.95A32.006 32.006 0 0 0 0 245.66v250.32c0 11.32 11.43 19.06 21.94 14.86L160 448V214.92c-8.84-15.98-16.07-31.54-21.25-46.42L20.12 215.95zM288 359.67c-14.07 0-27.38-6.18-36.51-16.96-19.66-23.2-40.57-49.62-59.49-76.72v182l192 64V266c-18.92 27.09-39.82 53.52-59.49 76.72-9.13 10.77-22.44 16.95-36.51 16.95zm266.06-198.51L416 224v288l139.88-55.95A31.996 31.996 0 0 0 576 426.34V176.02c0-11.32-11.43-19.06-21.94-14.86z"></path></svg>						</span>
+										<span class="elementor-icon-list-text"><b>Operação Regional Estratégica:</b> Domínio completo da malha rodoviária baiana para garantir escoamento rápido e seguro.</span>
+									</li>
+						</ul>
+						</div>
+				</div>
+		<!-- ===== SITE v2: NOVIDADES (Torre de Controle, Ravi, Rodavia 360) ===== -->
+<section class="rfx rfx-torre" id="tecnologia">
+ <div class="rfx-wrap rfx-grid">
   <div>
-   <span class="tag">Transporte rodoviário · Distribuição · Contratos</span>
-   <h1>Sua carga vigiada <span class="ouro">24 horas</span> por uma Torre de Controle própria.</h1>
-   <p class="lead">A RF Logística une frota própria, equipe treinada e o ecossistema de tecnologia <b>Rodavia 360</b>. Já entregamos em <b>todas as cidades da Bahia e em todo o Nordeste</b> — com segurança, prazo e rastreabilidade de ponta a ponta.</p>
-   <div class="acoes">
-    <a class="btn btn-ouro" href="#contato">Solicitar cotação →</a>
-    <a class="btn btn-linha" href="#torre">Conhecer a Torre de Controle</a>
-   </div>
-   <div class="selos">
-    <span><i>✓</i>Operação segura</span>
-    <span><i>✓</i>Prazos confiáveis</span>
-    <span><i>✓</i>Cobertura regional</span>
-   </div>
+   <span class="olho">Tecnologia própria</span>
+   <h2>Torre de Controle <span class="ouro">24 horas</span></h2>
+   <p>Cada caminhão, cada parada e cada entrega acompanhados em tempo real pela nossa Torre de Controle, 7 dias por semana. Problema identificado vira ação na hora, antes de virar atraso para o seu cliente.</p>
+   <a class="botao" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjEwOCIsInRvZ2dsZSI6ZmFsc2V9">Solicitar cotação <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
   </div>
+  <div class="rfx-itens">
+    <div class="rfx-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/></svg><div><b>Rastreamento via satélite</b>Posição da frota em tempo real, com rota, velocidade e paradas.</div></div>
+    <div class="rfx-item"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg><div><b>Alertas automáticos</b>Atraso, parada fora do previsto ou desvio de rota avisam a equipe na hora.</div></div>
+    <div class="rfx-item"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.2"/><path d="M8 6l1.5-2h5L16 6"/></svg><div><b>Comprovante com foto</b>Cada entrega registrada no app com foto do canhoto e horário.</div></div>
+    <div class="rfx-item"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H5.2L4 17.2z"/><path d="M8 9h8M8 12h5"/></svg><div><b>Cliente sempre informado</b>Saída, entrega concluída e retorno avisados sem precisar ligar.</div></div>
+   </div>
+ </div>
+ <div class="rfx-wrap">
+  <figure class="rfx-tela">
+   <img src="/assets/rf/torre-de-controle-tela.webp" width="2340" height="812" alt="Tela real da Torre de Controle da RF Logística: mapa com a frota rastreada e viagem em monitoramento no prazo" loading="lazy">
+   <figcaption><span class="vivo">AO VIVO</span> Tela real da nossa Torre de Controle: frota no mapa e cada viagem acompanhada, cidade por cidade.</figcaption>
+  </figure>
+ </div>
+</section>
 
-  <div class="pw">
-  <div class="painel" aria-label="Exemplo da tela da Torre de Controle">
-   <div class="barra"><b>TORRE DE CONTROLE · RF</b><span class="vivo">AO VIVO</span></div>
-   <div class="corpo">
-    <div class="mapa">
-     <svg viewBox="0 0 320 300" preserveAspectRatio="none">
-      <path d="M40 250 C 90 210, 110 150, 160 140 S 250 90, 290 40" stroke="#D4A017" stroke-width="2.2" fill="none" stroke-dasharray="6 6" opacity=".9"/>
-      <path d="M40 250 C 120 250, 170 230, 230 260" stroke="#777" stroke-width="1.6" fill="none" stroke-dasharray="4 6"/>
-      <path d="M40 250 C 60 180, 40 120, 80 60" stroke="#777" stroke-width="1.6" fill="none" stroke-dasharray="4 6"/>
-      <circle cx="40" cy="250" r="9" fill="#000" stroke="#D4A017" stroke-width="2.5"/>
-      <text x="54" y="268" fill="#D4A017" font-size="10" font-family="Inter" font-weight="700">BASE · FEIRA DE SANTANA</text>
-      <circle cx="160" cy="140" r="6" fill="#D4A017"/><circle cx="160" cy="140" r="13" fill="none" stroke="#D4A017" opacity=".35"/>
-      <circle cx="230" cy="260" r="6" fill="#fff"/>
-      <circle cx="80" cy="60" r="6" fill="#D4A017"/><circle cx="80" cy="60" r="13" fill="none" stroke="#D4A017" opacity=".35"/>
-      <circle cx="290" cy="40" r="5" fill="#555"/>
-     </svg>
+<section class="rfx rfx-ravi" id="ravi">
+ <div class="rfx-wrap">
+  <div class="caixa">
+   <img src="/assets/rf/ravi.webp" width="1230" height="1278" alt="Ravi, o funcionário de inteligência artificial da RF Logística" loading="lazy">
+   <div>
+    <span class="olho">Inteligência artificial</span>
+    <h2>Conheça o <span class="ouro">Ravi</span>, nosso funcionário de IA que não dorme</h2>
+    <p>O Ravi trabalha dentro da Torre de Controle: acompanha cada viagem, cobra as etapas da operação, avisa a equipe quando algo sai do previsto e responde no WhatsApp de dia, de noite e no fim de semana.</p>
+    <ul class="rfx-check">
+     <li>Confere saída, entregas e chegada</li>
+     <li>Cobra comprovantes e documentos</li>
+     <li>Chama o responsável quando precisa de decisão</li>
+     <li>Mantém o cliente informado em tempo real</li>
+    </ul>
+    <div class="rfx-chat">
+     <div class="b c"><div class="q">Cliente</div>Ravi, o caminhão da minha carga já saiu?</div>
+     <div class="b r"><div class="q">Ravi · RF Logística</div>Saiu às 06:12 da base de Feira de Santana. Previsão da primeira entrega: 09:40. Te aviso quando concluir.</div>
     </div>
-    <div class="lista">
-     <div class="vei"><div><b>Veículo 07</b><small>Rota Centro Norte</small></div><span class="st rota">EM ROTA</span></div>
-     <div class="vei"><div><b>Veículo 12</b><small>3ª entrega de 6</small></div><span class="st ent">ENTREGANDO</span></div>
-     <div class="vei"><div><b>Veículo 03</b><small>Rota Norte</small></div><span class="st rota">EM ROTA</span></div>
-     <div class="vei"><div><b>Veículo 19</b><small>Carregando</small></div><span class="st base">NA BASE</span></div>
-    </div>
-   </div>
-   <div class="rodape">
-    <div><b>25</b><small>veículos</small></div>
-    <div><b>100%</b><small>rastreados</small></div>
-    <div><b>24/7</b><small>monitoramento</small></div>
-    <div><b>0</b><small>alertas abertos</small></div>
-   </div>
-   </div>
-   <div class="ravi-bolha">
-    <div class="msg"><b>Ravi:</b> O Veículo 12 concluiu a 3ª entrega às 14:32. Comprovante com foto já está no sistema ✅</div>
-    <img src="assets/ravi_corpo.webp" alt="Ravi, assistente de IA da RF">
    </div>
   </div>
  </div>
 </section>
 
-<div class="numeros">
- <div class="wrap">
-  <div class="n"><b>25</b><span>veículos próprios<br>tocos e 3/4</span></div>
-  <div class="n"><b>24h</b><span>Torre de Controle<br>7 dias por semana</span></div>
-  <div class="n"><b>100%</b><span>da frota rastreada<br>via satélite</span></div>
-  <div class="n"><b>IA</b><span>Ravi acompanhando<br>cada viagem</span></div>
-  <div class="n"><b>100%</b><span>das cidades da Bahia<br>e todo o Nordeste já atendidos</span></div>
+<section class="rfx rfx-eco" id="rodavia360">
+ <div class="rfx-wrap">
+  <div class="topo">
+   <span class="olho">Ecossistema RF</span>
+   <h2>Não é só um sistema. É um <span class="ouro">ecossistema.</span></h2>
+   <p>O Rodavia 360 foi criado dentro da RF e fica no centro de tudo: liga estrada, escritório e cliente numa só plataforma. Cada parte conversa com a outra, e o Ravi conversa com todas.</p>
+  </div>
+  <div class="rfx-hub">
+   <svg class="rfx-linhas" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M500 300 L300 100 M500 300 L300 300 M500 300 L300 500 M500 300 L700 100 M500 300 L700 300 M500 300 L700 500"/>
+   </svg>
+   <div class="col"><div class="rfx-mod m0"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg><div><h3>Torre de Controle</h3><p>Monitoramento 24h, alertas e rastreamento de toda a frota.</p></div></div><div class="rfx-mod m1"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 7V4M9 12h.01M15 12h.01M9 16h6"/></svg><div><h3>Ravi IA</h3><p>Assistente que acompanha, cobra e informa pelo WhatsApp.</p></div></div><div class="rfx-mod m2"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg><div><h3>App do Motorista</h3><p>Viagem, entregas, fotos, km e abastecimento direto no celular.</p></div></div></div>
+   <div class="nucleo"><div class="anel"></div><img src="/assets/rf/rodavia360-logo.png" width="1228" height="425" alt="Rodavia 360 · Gestão de Frota"></div>
+   <div class="col"><div class="rfx-mod m3"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg><div><h3>Portal do Cliente</h3><p>Acesso à Torre e a todos os documentos da carga, com login próprio.</p></div></div><div class="rfx-mod m4"><svg viewBox="0 0 24 24"><path d="M3 17h2l2-9h10l2 9h2"/><circle cx="7.5" cy="18" r="2"/><circle cx="16.5" cy="18" r="2"/></svg><div><h3>Gestão de Frota</h3><p>Manutenção, consumo, disponibilidade e custo por caminhão.</p></div></div><div class="rfx-mod m5"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/></svg><div><h3>Fiscal e Financeiro</h3><p>CT-e, MDF-e, custos e resultado de cada viagem.</p></div></div></div>
+  </div>
+  <p class="frase">Para o cliente, isso significa <b>informação certa, na hora certa</b>, e uma operação que melhora todos os dias.</p>
  </div>
+</section>
+
+<section class="rfx rfx-portal" id="portal-do-cliente">
+ <div class="rfx-wrap">
+  <div class="rfx-grid2">
+   <div>
+    <span class="olho">Transparência total</span>
+    <h2>O cliente tem <span class="ouro">acesso ao sistema</span></h2>
+    <p>Cada cliente recebe login próprio no Rodavia 360 e acompanha a carga dele como se estivesse dentro da nossa Torre de Controle, a qualquer hora, sem precisar ligar ou pedir documento por e-mail.</p>
+    <ul class="rfx-check2">
+     <li><b>Acesso à Torre de Controle:</b> veículo no mapa, etapa da viagem e previsão de entrega.</li>
+     <li><b>Todos os documentos da carga:</b> baixe quando quiser, em um só lugar.</li>
+     <li><b>Comprovantes de entrega com foto,</b> canhotos e ocorrências registradas na hora.</li>
+     <li><b>Histórico completo</b> de viagens, entregas e indicadores do seu contrato.</li>
+    </ul>
+   </div>
+   <div class="rfx-docs">
+    <div class="tit">Documentos disponíveis para o cliente</div>
+    <div class="lista">
+     <span>CT-e</span><span>MDF-e</span><span>DACTE (PDF)</span><span>Notas fiscais (NF-e)</span>
+     <span>Canhotos assinados</span><span>Fotos das entregas</span><span>Averbação do seguro</span><span>CIOT</span>
+     <span>Romaneio / roteiro</span><span>Ocorrências</span><span>Relatórios da operação</span><span>XML dos documentos</span>
+    </div>
+    <div class="rod"><span class="vivo">24h</span> disponível pelo computador ou celular</div>
+   </div>
+  </div>
+
+  <div class="rfx-integra">
+   <div class="cab">
+    <h3>O sistema <span class="ouro">integra com qualquer plataforma</span></h3>
+    <p>O Rodavia 360 conversa com o sistema que o seu time já usa, por API, EDI, XML ou planilha. Sem retrabalho e sem digitar a mesma informação duas vezes.</p>
+   </div>
+   <div class="grupos">
+    <div class="g"><b>ERPs</b><div><span>SAP</span><span>TOTVS Protheus</span><span>TOTVS Datasul</span><span>Oracle</span><span>Senior</span><span>Sankhya</span><span>Microsoft Dynamics</span></div></div>
+    <div class="g"><b>TMS, WMS e roteirização</b><div><span>Plataformas TMS</span><span>Plataformas WMS</span><span>Roteirizadores</span><span>EDI (Proceda / Notfis)</span></div></div>
+    <div class="g"><b>Rastreamento e risco</b><div><span>Sascar</span><span>Omnilink</span><span>Onixsat</span><span>Autotrac</span><span>Buonny</span><span>Opentech</span></div></div>
+    <div class="g"><b>Fiscal, frete e pedágio</b><div><span>SEFAZ (CT-e e MDF-e)</span><span>AT&amp;M (averbação)</span><span>Roadcard</span><span>Repom</span><span>Pamcard</span><span>Sem Parar</span></div></div>
+   </div>
+  </div>
+ </div>
+</section>
+<!-- ===== FIM NOVIDADES ===== -->
+
+<div class="elementor-element elementor-element-2a5cd0f e-con-full e-flex e-con e-parent" data-id="2a5cd0f" data-element_type="container" data-e-type="container">
+		<div class="elementor-element elementor-element-69d5fd0 e-con-full e-flex e-con e-child" data-id="69d5fd0" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-d73f511 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="d73f511" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">O Que Transportamos</h2>				</div>
+				<div class="elementor-element elementor-element-5f53c4f elementor-widget-tablet__width-initial elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="5f53c4f" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Soluções Especializadas por Setor</h2>				</div>
+				<div class="elementor-element elementor-element-3091886 elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="3091886" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+									Adaptamos nossos processos operacionais e de frota às rígidas regras de conformidade e exigências de cada mercado.								</div>
+				<div class="elementor-element elementor-element-ec9585c elementor-widget elementor-widget-button" data-id="ec9585c" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="/servicos">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Conhecer nossos serviços</span>
+					</span>
+					</a>
+								</div>
+				</div>
+		<div class="elementor-element elementor-element-32ae450 e-con-full e-flex e-con e-child" data-id="32ae450" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-6e0cc8d elementor-widget__width-initial elementor-arrows-position-inside elementor-invisible elementor-widget elementor-widget-n-carousel" data-id="6e0cc8d" data-element_type="widget" data-e-type="widget" data-settings="{&quot;carousel_items&quot;:[{&quot;slide_title&quot;:&quot;Slide #1&quot;,&quot;_id&quot;:&quot;85e134a&quot;},{&quot;slide_title&quot;:&quot;Slide #1&quot;,&quot;_id&quot;:&quot;0a71eb8&quot;},{&quot;slide_title&quot;:&quot;Slide #1&quot;,&quot;_id&quot;:&quot;27e2749&quot;},{&quot;slide_title&quot;:&quot;Slide #1&quot;,&quot;_id&quot;:&quot;213d59d&quot;}],&quot;slides_to_show&quot;:&quot;1&quot;,&quot;slides_to_scroll&quot;:&quot;1&quot;,&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;slides_to_show_tablet&quot;:&quot;1&quot;,&quot;slides_to_show_mobile&quot;:&quot;1&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;infinite&quot;:&quot;yes&quot;,&quot;speed&quot;:500,&quot;offset_sides&quot;:&quot;none&quot;,&quot;arrows&quot;:&quot;yes&quot;,&quot;image_spacing_custom&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;image_spacing_custom_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;image_spacing_custom_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="nested-carousel.default">
+							<div class="e-n-carousel swiper" role="region" aria-roledescription="carousel" aria-label="Carousel" dir="ltr">
+			<div class="swiper-wrapper" aria-live="off">
+										<div class="swiper-slide" data-slide="1" role="group" aria-roledescription="slide" aria-label="1 of 4">
+							<div class="elementor-element elementor-element-aa7a4ae e-flex e-con-boxed e-con e-child" data-id="aa7a4ae" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-167ac3b elementor-widget elementor-widget-image-box" data-id="167ac3b" data-element_type="widget" data-e-type="widget" data-widget_type="image-box.default">
+					<div class="elementor-image-box-wrapper"><div class="elementor-image-box-content"><h3 class="elementor-image-box-title">Bens de Consumo e Varejo</h3><p class="elementor-image-box-description">Distribuição ágil de Bebidas, Alimentos Secos e Embalagens.</p></div></div>				</div>
+				<div class="elementor-element elementor-element-8cc54a3 elementor-widget elementor-widget-button" data-id="8cc54a3" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="/servicos/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Saber Mais</span>
+					</span>
+					</a>
+								</div>
+					</div>
+				</div>
+								</div>
+											<div class="swiper-slide" data-slide="2" role="group" aria-roledescription="slide" aria-label="2 of 4">
+							<div class="elementor-element elementor-element-efe03e8 e-flex e-con-boxed e-con e-child" data-id="efe03e8" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-f787ae8 elementor-widget elementor-widget-image-box" data-id="f787ae8" data-element_type="widget" data-e-type="widget" data-widget_type="image-box.default">
+					<div class="elementor-image-box-wrapper"><div class="elementor-image-box-content"><h3 class="elementor-image-box-title">Indústria e Infraestrutura</h3><p class="elementor-image-box-description">Transporte seguro de Autopeças, Materiais de Construção e Granel Ensacado.</p></div></div>				</div>
+				<div class="elementor-element elementor-element-71fdb72 elementor-widget elementor-widget-button" data-id="71fdb72" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="/servicos/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Saber Mais</span>
+					</span>
+					</a>
+								</div>
+					</div>
+				</div>
+								</div>
+											<div class="swiper-slide" data-slide="3" role="group" aria-roledescription="slide" aria-label="3 of 4">
+							<div class="elementor-element elementor-element-4e80cbf e-flex e-con-boxed e-con e-child" data-id="4e80cbf" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-739ea65 elementor-widget elementor-widget-image-box" data-id="739ea65" data-element_type="widget" data-e-type="widget" data-widget_type="image-box.default">
+					<div class="elementor-image-box-wrapper"><div class="elementor-image-box-content"><h3 class="elementor-image-box-title">Canais Digitais</h3><p class="elementor-image-box-description">Logística integrada para operações de E-commerce com foco em velocidade de entrega.</p></div></div>				</div>
+				<div class="elementor-element elementor-element-85b9b0b elementor-widget elementor-widget-button" data-id="85b9b0b" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="/servicos/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Saber Mais</span>
+					</span>
+					</a>
+								</div>
+					</div>
+				</div>
+								</div>
+											<div class="swiper-slide" data-slide="4" role="group" aria-roledescription="slide" aria-label="4 of 4">
+							<div class="elementor-element elementor-element-cd5d861 e-flex e-con-boxed e-con e-child" data-id="cd5d861" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-3bda64c elementor-widget elementor-widget-image-box" data-id="3bda64c" data-element_type="widget" data-e-type="widget" data-widget_type="image-box.default">
+					<div class="elementor-image-box-wrapper"><div class="elementor-image-box-content"><h3 class="elementor-image-box-title">Distribuição e Abastecimento</h3><p class="elementor-image-box-description">Fluxo contínuo direcionado para Grandes Lojas e Centros de Distribuição (CDs).</p></div></div>				</div>
+				<div class="elementor-element elementor-element-a680a69 elementor-widget elementor-widget-button" data-id="a680a69" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="/servicos/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Saber Mais</span>
+					</span>
+					</a>
+								</div>
+					</div>
+				</div>
+								</div>
+								</div>
+		</div>
+					<div class="elementor-swiper-button elementor-swiper-button-prev" role="button" tabindex="0" aria-label="Previous">
+				<svg aria-hidden="true" class="e-font-icon-svg e-eicon-chevron-left" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M646 125C629 125 613 133 604 142L308 442C296 454 292 471 292 487 292 504 296 521 308 533L604 854C617 867 629 875 646 875 663 875 679 871 692 858 704 846 713 829 713 812 713 796 708 779 692 767L438 487 692 225C700 217 708 204 708 187 708 171 704 154 692 142 675 129 663 125 646 125Z"></path></svg>			</div>
+			<div class="elementor-swiper-button elementor-swiper-button-next" role="button" tabindex="0" aria-label="Next">
+				<svg aria-hidden="true" class="e-font-icon-svg e-eicon-chevron-right" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M696 533C708 521 713 504 713 487 713 471 708 454 696 446L400 146C388 133 375 125 354 125 338 125 325 129 313 142 300 154 292 171 292 187 292 204 296 221 308 233L563 492 304 771C292 783 288 800 288 817 288 833 296 850 308 863 321 871 338 875 354 875 371 875 388 867 400 854L696 533Z"></path></svg>			</div>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-50aafd0 e-con-full e-flex e-con e-parent" data-id="50aafd0" data-element_type="container" data-e-type="container">
+		<div class="elementor-element elementor-element-b4d91a4 e-con-full e-flex elementor-invisible e-con e-child" data-id="b4d91a4" data-element_type="container" data-e-type="container" data-settings="{&quot;animation&quot;:&quot;fadeInLeft&quot;}">
+				<div class="elementor-element elementor-element-0f06a2f elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="0f06a2f" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Cobertura Estratégica</h2>				</div>
+				<div class="elementor-element elementor-element-8fb0472 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="8fb0472" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Domínio estratégico nas principais rotas do Nordeste</h2>				</div>
+				<div class="elementor-element elementor-element-8b6967d elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="8b6967d" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+									<p>Conectamos sua mercadoria aos principais mercados com máxima agilidade urbana e rodoviária.</p><div class="rfx-cobertura"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-4-3-7-7-7zm-1.2 10.6L8 9.8l1.4-1.4 1.4 1.4 3.8-3.8L16 7.4l-5.2 5.2z"/></svg><div>Já entregamos em <b>todas as cidades da Bahia</b> e em <b>todo o Nordeste</b>.</div></div>								</div>
+		<div class="elementor-element elementor-element-1d1f503 e-grid e-con-full e-con e-child" data-id="1d1f503" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-fd22b51 elementor-view-default elementor-position-block-start elementor-mobile-position-block-start elementor-invisible elementor-widget elementor-widget-icon-box" data-id="fd22b51" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;,&quot;_animation_delay&quot;:300}" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span  class="elementor-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-far-map" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M560.02 32c-1.96 0-3.98.37-5.96 1.16L384.01 96H384L212 35.28A64.252 64.252 0 0 0 191.76 32c-6.69 0-13.37 1.05-19.81 3.14L20.12 87.95A32.006 32.006 0 0 0 0 117.66v346.32C0 473.17 7.53 480 15.99 480c1.96 0 3.97-.37 5.96-1.16L192 416l172 60.71a63.98 63.98 0 0 0 40.05.15l151.83-52.81A31.996 31.996 0 0 0 576 394.34V48.02c0-9.19-7.53-16.02-15.98-16.02zM224 90.42l128 45.19v285.97l-128-45.19V90.42zM48 418.05V129.07l128-44.53v286.2l-.64.23L48 418.05zm480-35.13l-128 44.53V141.26l.64-.24L528 93.95v288.97z"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<h3 class="elementor-icon-box-title">
+						<span  >
+							Área de Atuação Principal						</span>
+					</h3>
+				
+									<p class="elementor-icon-box-description">
+						Todo o estado da Bahia, alcançando com rapidez e capilaridade municípios de ponta a ponta.					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-1a2ad77 elementor-view-default elementor-position-block-start elementor-mobile-position-block-start elementor-invisible elementor-widget elementor-widget-icon-box" data-id="1a2ad77" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;,&quot;_animation_delay&quot;:300}" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span  class="elementor-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-far-compass" viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M347.94 129.86L203.6 195.83a31.938 31.938 0 0 0-15.77 15.77l-65.97 144.34c-7.61 16.65 9.54 33.81 26.2 26.2l144.34-65.97a31.938 31.938 0 0 0 15.77-15.77l65.97-144.34c7.61-16.66-9.54-33.81-26.2-26.2zm-77.36 148.72c-12.47 12.47-32.69 12.47-45.16 0-12.47-12.47-12.47-32.69 0-45.16 12.47-12.47 32.69-12.47 45.16 0 12.47 12.47 12.47 32.69 0 45.16zM248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm0 448c-110.28 0-200-89.72-200-200S137.72 56 248 56s200 89.72 200 200-89.72 200-200 200z"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<h3 class="elementor-icon-box-title">
+						<span  >
+							Rotas Principais						</span>
+					</h3>
+				
+									<p class="elementor-icon-box-description">
+						Fluxos estratégicos estruturados a partir da nossa matriz em Feira de Santana para as principais regiões logísticas baianas e estados do Nordeste.					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-1905ddf e-con-full e-flex e-con e-child" data-id="1905ddf" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-a40f594 elementor-widget elementor-widget-image" data-id="a40f594" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+															<img decoding="async" width="800" height="786" src="wp-content/uploads/2026/06/Mapa-RF-Logistica.svg" class="attachment-large size-large wp-image-1564" alt="" />															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-f5b5fcc e-con-full e-flex e-con e-child" data-id="f5b5fcc" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-2569bf1 elementor-widget-mobile__width-initial elementor-widget elementor-widget-text-editor" data-id="2569bf1" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+									<p>Homologada por referências do mercado</p>								</div>
+		<div class="elementor-element elementor-element-256137b e-con-full elementor-widget-swiper e-flex e-con e-child" data-id="256137b" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-32a8be2 elementor-widget__width-inherit carrossel elementor-widget-mobile__width-initial elementor-invisible elementor-widget elementor-widget-image-carousel" data-id="32a8be2" data-element_type="widget" data-e-type="widget" data-settings="{&quot;autoplay_speed&quot;:0,&quot;slides_to_show&quot;:&quot;10&quot;,&quot;slides_to_show_mobile&quot;:&quot;3&quot;,&quot;navigation&quot;:&quot;none&quot;,&quot;image_spacing_custom&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:80,&quot;sizes&quot;:[]},&quot;speed&quot;:5000,&quot;slides_to_show_tablet&quot;:&quot;4&quot;,&quot;image_spacing_custom_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:50,&quot;sizes&quot;:[]},&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;infinite&quot;:&quot;yes&quot;,&quot;image_spacing_custom_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="image-carousel.default">
+							<div class="elementor-image-carousel-wrapper swiper" role="region" aria-roledescription="carousel" aria-label="Carrossel de imagens" dir="rtl">
+			<div class="elementor-image-carousel swiper-wrapper" aria-live="off"><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="1 de 14"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="/wp-content/uploads/2026/06/Logos-1.png" alt="Yamalog" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="2 de 14"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="/assets/rf/cliente-suzano.png" alt="Suzano" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="3 de 14"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="/wp-content/uploads/2026/06/Logos-2.png" alt="Grupo Mateus" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="4 de 14"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="/assets/rf/cliente-mercante.png" alt="JDL / Mercante" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="5 de 14"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="/assets/rf/cliente-fm.png" alt="FM Transporte" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="6 de 14"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="/assets/rf/cliente-anjun.png" alt="Anjun Express" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="7 de 14"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="/assets/rf/cliente-saoroque.png" alt="Grupo São Roque" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="8 de 14"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="/wp-content/uploads/2026/06/Logos-1.png" alt="Yamalog" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="9 de 14"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="/assets/rf/cliente-suzano.png" alt="Suzano" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="10 de 14"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="/wp-content/uploads/2026/06/Logos-2.png" alt="Grupo Mateus" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="11 de 14"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="/assets/rf/cliente-mercante.png" alt="JDL / Mercante" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="12 de 14"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="/assets/rf/cliente-fm.png" alt="FM Transporte" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="13 de 14"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="/assets/rf/cliente-anjun.png" alt="Anjun Express" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="14 de 14"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="/assets/rf/cliente-saoroque.png" alt="Grupo São Roque" /></figure></div>			</div>
+							
+									</div>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-0be9a93 e-con-full e-flex e-con e-parent" data-id="0be9a93" data-element_type="container" data-e-type="container">
+		<div class="elementor-element elementor-element-9e9dd81 e-con-full e-flex e-con e-child" data-id="9e9dd81" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;motion_fx_translateY_effect&quot;:&quot;yes&quot;,&quot;motion_fx_devices&quot;:[&quot;widescreen&quot;,&quot;desktop&quot;,&quot;laptop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;motion_fx_translateY_speed&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:4,&quot;sizes&quot;:[]},&quot;motion_fx_translateY_affectedRange&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;start&quot;:0,&quot;end&quot;:100}}}">
+				<div class="elementor-element elementor-element-3fb9051 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="3fb9051" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Sua carga precisa de eficiência agora? Nós resolvemos.</h2>				</div>
+				<div class="elementor-element elementor-element-51fff1a elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="51fff1a" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+									<p><span data-path-to-node="21,0">Una a segurança de uma frota rastreada à pontualidade de uma transportadora com operação regional estratégica na Bahia</span><span data-path-to-node="21,2">. Conte com a nossa experiência para eliminar gargalos e reduzir as avarias da sua distribuição</span><span data-path-to-node="21,4">.</span></p><p data-path-to-node="23"><b data-path-to-node="23" data-index-in-node="0">RF Logística: Agilidade, pontualidade e segurança de ponta a ponta.</b></p>								</div>
+				<div class="elementor-element elementor-element-5ae9906 elementor-widget elementor-widget-button" data-id="5ae9906" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjEwOCIsInRvZ2dsZSI6ZmFsc2V9" target="_blank">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fab-whatsapp" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>			</span>
+									<span class="elementor-button-text">SOLICITAR COTAÇÃO IMEDIATA</span>
+					</span>
+					</a>
+								</div>
+				<div class="elementor-element elementor-element-266bd5b elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="266bd5b" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;,&quot;motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;motion_fx_translateY_effect&quot;:&quot;yes&quot;,&quot;motion_fx_translateY_direction&quot;:&quot;negative&quot;,&quot;motion_fx_translateY_speed&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:2,&quot;sizes&quot;:[]},&quot;motion_fx_devices&quot;:[&quot;widescreen&quot;,&quot;desktop&quot;,&quot;laptop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;motion_fx_translateY_affectedRange&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;start&quot;:0,&quot;end&quot;:100}}}" data-widget_type="image.default">
+															<img decoding="async" width="726" height="857" src="wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-2.png" class="attachment-full size-full wp-image-1466" alt="" srcset="wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-2.png 726w, wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-2-254x300.png 254w" sizes="(max-width: 726px) 100vw, 726px" />															</div>
+				</div>
+				</div>
+				</div>
+				<footer data-elementor-type="footer" data-elementor-id="21" class="elementor elementor-21 elementor-location-footer" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-2565a2cc e-con-full e-flex e-con e-parent" data-id="2565a2cc" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+		<div class="elementor-element elementor-element-1b3422f e-con-full e-flex e-con e-child" data-id="1b3422f" data-element_type="container" data-e-type="container">
+		<div class="elementor-element elementor-element-63d12363 e-con-full e-flex e-con e-child" data-id="63d12363" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-1164b192 elementor-widget elementor-widget-text-editor" data-id="1164b192" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+									<p>Informações</p>								</div>
+				<div class="elementor-element elementor-element-2c4bbb37 elementor-align-start elementor-tablet-align-start elementor-mobile-align-center elementor-widget-mobile__width-initial elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="2c4bbb37" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjEwOCIsInRvZ2dsZSI6ZmFsc2V9" target="_blank">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fab-whatsapp" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">+55 75 99971-7578</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjEwOCIsInRvZ2dsZSI6ZmFsc2V9" target="_blank">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fab-whatsapp" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">+55 75 98701-8067</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="mailto:comercial@rflogistica.com.br">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-far-envelope" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">comercial@rflogistica.com.br</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-map-marker-alt" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Feira de Santana / BA</span>
+									</li>
+						</ul>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-d823b4f e-con-full e-flex e-con e-child" data-id="d823b4f" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-ca08a75 elementor-widget__width-initial elementor-widget elementor-widget-icon-box" data-id="ca08a75" data-element_type="widget" data-e-type="widget" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+			
+						<div class="elementor-icon-box-content">
+
+				
+									<p class="elementor-icon-box-description">
+						Soluções Logísticas para <span style="color:#F2C627">sua empresa					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-6cb867c elementor-align-right elementor-mobile-align-center elementor-widget elementor-widget-button" data-id="6cb867c" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjEwOCIsInRvZ2dsZSI6ZmFsc2V9" target="_blank">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fab-whatsapp" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>			</span>
+									<span class="elementor-button-text">FAZER COTAÇÃO AGORA</span>
+					</span>
+					</a>
+								</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-4aa92f2e e-con-full e-flex e-con e-child" data-id="4aa92f2e" data-element_type="container" data-e-type="container">
+		<div class="elementor-element elementor-element-31a008e e-con-full e-flex e-con e-child" data-id="31a008e" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-680033ab elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="680033ab" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+																<a href="index.html">
+							<img width="2560" height="835" src="wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-scaled.png" class="attachment-full size-full wp-image-1465" alt="" srcset="wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-scaled.png 2560w, wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-300x98.png 300w, wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-1024x334.png 1024w, wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-768x250.png 768w, wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-1536x501.png 1536w, wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-2048x668.png 2048w" sizes="(max-width: 2560px) 100vw, 2560px" />								</a>
+															</div>
+				</div>
+		<div class="elementor-element elementor-element-235e8e1b e-con-full e-flex e-con e-child" data-id="235e8e1b" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-30d68710 elementor-widget elementor-widget-text-editor" data-id="30d68710" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+									<p><a href="/privacidade">Privacidade</a></p>								</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-3b32f1cf e-con-full e-flex e-con e-child" data-id="3b32f1cf" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-e410108 elementor-widget-mobile__width-initial elementor-widget elementor-widget-text-editor" data-id="e410108" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+									© 2026 &#8211; RF Logística &#8211; Todos os direitos reservados.								</div>
+				</div>
+				</div>
+				</footer>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+		<div data-elementor-type="popup" data-elementor-id="108" class="elementor elementor-108 elementor-location-popup" data-elementor-settings="{&quot;a11y_navigation&quot;:&quot;yes&quot;,&quot;triggers&quot;:[],&quot;timing&quot;:[]}" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-199a3840 e-flex e-con-boxed e-con e-parent" data-id="199a3840" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-46bcde19 elementor-widget elementor-widget-image" data-id="46bcde19" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+															<img width="800" height="261" src="wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-1024x334.png" class="attachment-large size-large wp-image-1465" alt="" srcset="wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-1024x334.png 1024w, wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-300x98.png 300w, wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-768x250.png 768w, wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-1536x501.png 1536w, wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-2048x668.png 2048w" sizes="(max-width: 800px) 100vw, 800px" />															</div>
+				<div class="elementor-element elementor-element-23047119 elementor-widget elementor-widget-heading" data-id="23047119" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Por favor, preencha as informações abaixo:</h2>				</div>
+				<div class="elementor-element elementor-element-38876871 elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="38876871" data-element_type="widget" data-e-type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+							<form class="elementor-form" method="post" name="New Form" aria-label="New Form">
+			<input type="hidden" name="post_id" value="108"/>
+			<input type="hidden" name="form_id" value="38876871"/>
+			<input type="hidden" name="referer_title" value="" />
+
+							<input type="hidden" name="queried_id" value="386"/>
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-above">
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100 elementor-field-required elementor-mark-required">
+												<label for="form-field-name" class="elementor-field-label">
+								Nome							</label>
+														<input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="Insira aqui seu nome" required="required">
+											</div>
+								<div class="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-email elementor-col-100 elementor-field-required elementor-mark-required">
+												<label for="form-field-email" class="elementor-field-label">
+								Telefone							</label>
+								<input size="1" type="tel" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="Insira aqui seu telefone" required="required" pattern="[0-9()#&amp;+*-=.]+" title="Only numbers and phone characters (#, -, *, etc) are accepted.">
+
+						</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button class="elementor-button elementor-size-sm elementor-animation-float" type="submit">
+						<span class="elementor-button-content-wrapper">
+																						<span class="elementor-button-text">Enviar</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+						</div>
+					</div>
+				</div>
+				</div>
+					<script>
+				( () => {
+					const lazyloadRunObserver = () => {
+						const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+						const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+							entries.forEach( ( entry ) => {
+								if ( entry.isIntersecting ) {
+									let lazyloadBackground = entry.target;
+									if( lazyloadBackground ) {
+										lazyloadBackground.classList.add( 'e-lazyloaded' );
+									}
+									lazyloadBackgroundObserver.unobserve( entry.target );
+								}
+							});
+						}, { rootMargin: '200px 0px 200px 0px' } );
+						lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+							lazyloadBackgroundObserver.observe( lazyloadBackground );
+						} );
+					};
+					const events = [
+						'DOMContentLoaded',
+						'elementor/lazyload/observe',
+					];
+					events.forEach( ( event ) => {
+						document.addEventListener( event, lazyloadRunObserver );
+					} );
+				} )();
+			</script>
+			<script id="cncb_banner-js" src="wp-content/plugins/cookie-notice-and-consent-banner/js/cookiebanner.js"></script>
+<script id="cncb_banner_init-js-extra">
+var cncb_plugin_object = {"theme":"CodGrayWhite","type":"confirm","bannerBlockType":"block","position":"bottom-left","corner":"rectangle","buttonType":"filled-rectangle","blind":{"visible":0},"message":{"html":"Este site utiliza cookies para melhorar sua experi\u00eancia de navega\u00e7\u00e3o.","styles":[]},"link":{"html":"Aviso de Privacidade.","href":"/privacidade","styles":{"color":"#f2c627","display":"inline"},"stylesHover":{"color":"#ffffff"}},"buttonDirection":"row","buttonAllow":{"html":"PERMITIR","styles":{"border-style":"solid","border-radius":"90px","background":"#f2c627"},"stylesHover":{"color":"#f2c627","border-style":"solid","background":"#1b1b1b"}},"buttonDismiss":{"html":"OK","styles":{"border-style":"solid","border-radius":"90px","background":"#f2c627"},"stylesHover":{"color":"#f2c627","border-style":"solid","background":"#1b1b1b"}},"buttonDecline":{"html":"RECUSAR","styles":{"border-style":"solid"},"stylesHover":{"border-style":"solid"}},"animationType":"slide-bottom","animationDelay":"0ms","animationDuration":"600ms","popupStyles":{"border-style":"none","margin-top":"auto","margin-right":"auto","margin-bottom":"auto","margin-left":"auto"},"accept":[]};
+//# sourceURL=cncb_banner_init-js-extra
+</script>
+<script id="cncb_banner_init-js" src="wp-content/plugins/cookie-notice-and-consent-banner/js/cookiebanner-init.js"></script>
+<script id="hello-theme-frontend-js" src="wp-content/themes/hello-elementor/assets/js/hello-frontend.js"></script>
+<script id="elementor-webpack-runtime-js" src="wp-content/plugins/elementor/assets/js/webpack.runtime.min.js"></script>
+<script id="elementor-frontend-modules-js" src="wp-content/plugins/elementor/assets/js/frontend-modules.min.js"></script>
+<script id="jquery-ui-core-js" src="wp-includes/js/jquery/ui/core.min.js"></script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Compartilhar no Facebook","shareOnX":"Compartilhar no X","pinIt":"Fixar","download":"Baixar","downloadImage":"Baixar imagem","fullscreen":"Tela cheia","zoom":"Zoom","share":"Compartilhar","playVideo":"Reproduzir v\u00eddeo","previous":"Anterior","next":"Pr\u00f3ximo","close":"Fechar","a11yCarouselPrevSlideMessage":"Slide anterior","a11yCarouselNextSlideMessage":"Pr\u00f3ximo slide","a11yCarouselFirstSlideMessage":"Este \u00e9 o primeiro slide","a11yCarouselLastSlideMessage":"Este \u00e9 o \u00faltimo slide","a11yCarouselPaginationBulletMessage":"Ir para o slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Dispositivos m\u00f3veis no modo retrato","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Dispositivos m\u00f3veis no modo paisagem","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet no modo retrato","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet no modo paisagem","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Notebook","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Tela ampla (widescreen)","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"4.3.5","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_optimized_markup":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"nested-elements":true,"import-export-customization":true,"e_pro_atomic_form":true,"mega-menu":true,"e_pro_variables":true,"e_pro_interactions":true},"urls":{"assets":"\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/rflogistica.com.br\/wp-admin\/admin-ajax.php","uploadUrl":"\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"86c5f93878","atomicFormsSendForm":"645fafdd56"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"logo","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":386,"title":"RF%20Log%C3%ADstica%20%E2%80%93%20Transporte%20rodovi%C3%A1rio%20de%20cargas","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script id="elementor-frontend-js" src="wp-content/plugins/elementor/assets/js/frontend.min.js"></script>
+<script id="smartmenus-js" src="wp-content/plugins/pro-elements/assets/lib/smartmenus/jquery.smartmenus.min.js"></script>
+<script id="e-sticky-js" src="wp-content/plugins/pro-elements/assets/lib/sticky/jquery.sticky.min.js"></script>
+<script id="swiper-js" src="wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js"></script>
+<script id="elementor-pro-webpack-runtime-js" src="wp-content/plugins/pro-elements/assets/js/webpack-pro.runtime.min.js"></script>
+<script id="wp-hooks-js" src="wp-includes/js/dist/hooks.min.js"></script>
+<script id="wp-i18n-js" src="wp-includes/js/dist/i18n.min.js"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/rflogistica.com.br\/wp-admin\/admin-ajax.php","nonce":"c5962def24","urls":{"assets":"\/wp-content\/plugins\/pro-elements\/assets\/","rest":"https:\/\/rflogistica.com.br\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"pt_BR","app_id":""},"lottie":{"defaultAnimationUrl":"\/wp-content\/plugins\/pro-elements\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script id="elementor-pro-frontend-js" src="wp-content/plugins/pro-elements/assets/js/frontend.min.js"></script>
+<script id="pro-elements-handlers-js" src="wp-content/plugins/pro-elements/assets/js/elements-handlers.min.js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://rflogistica.com.br/wp-includes/js/wp-emoji-release.min.js?ver=7.0.8"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://rflogistica.com.br/wp-includes/js/wp-emoji-loader.min.js
+</script>
+<style>
+#site-preloader{
+position:fixed;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#1b1b1b;
+z-index:999999;
+transition:opacity .6s ease, visibility .6s ease;
+}
+
+#site-preloader img{
+width:80px;
+height:auto;
+animation:logoGrow 1.3s ease-in-out infinite alternate;
+}
+
+@keyframes logoGrow{
+from{
+transform:scale(.9);
+opacity:.7;
+}
+to{
+transform:scale(1.50);
+opacity:1;
+}
+}
+
+#site-preloader.hide{
+opacity:0;
+visibility:hidden;
+}
+</style>
+
+<div id="site-preloader">
+<img id="preloader-logo" alt="loading">
 </div>
 
-<section class="bloco torre" id="torre">
- <div class="wrap">
-  <div class="titulo">
-   <span class="tag">Torre de Controle</span>
-   <h2>Nada acontece na estrada <span class="ouro">sem a gente saber.</span></h2>
-   <p>Nossa Torre de Controle acompanha cada caminhão, cada parada e cada entrega em tempo real. Problema identificado vira ação na hora — antes de virar atraso para o seu cliente.</p>
-  </div>
-  <div class="grid">
-   <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/></svg></div><h3>Rastreamento via satélite</h3><p>Posição de toda a frota em tempo real, com histórico de rota, velocidade e paradas.</p></div>
-   <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></div><h3>Alertas automáticos</h3><p>Parada fora do previsto, atraso na saída ou desvio de rota geram alerta imediato para a equipe.</p></div>
-   <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.2"/><path d="M8 6l1.5-2h5L16 6"/></svg></div><h3>Comprovante com foto</h3><p>Cada entrega é registrada pelo motorista no app, com foto do canhoto e horário — sem papel perdido.</p></div>
-   <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div><h3>App do motorista</h3><p>Início e fim de viagem, quilometragem, abastecimento e ocorrências registrados direto do celular.</p></div>
-   <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H5.2L4 17.2z"/><path d="M8 9h8M8 12h5"/></svg></div><h3>Cliente sempre informado</h3><p>Avisos de saída, entrega concluída e retorno chegam ao responsável do cliente, sem precisar ligar.</p></div>
-   <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div><h3>Indicadores da operação</h3><p>Disponibilidade da frota, prazos cumpridos e ocorrências medidos todos os dias, com melhoria contínua.</p></div>
-  </div>
- </div>
-</section>
-
-<section class="bloco ravi" id="ravi">
- <div class="wrap grid">
-  <div class="ravi-fig"><img src="assets/ravi_corpo.webp" alt="Ravi, o funcionário de inteligência artificial da RF Logística"></div>
-  <div>
-   <span class="tag">Inteligência artificial</span>
-   <div class="titulo" style="margin-bottom:0">
-    <h2>Conheça o <span class="ouro">Ravi</span>, nosso funcionário de IA que não dorme.</h2>
-    <p>O Ravi trabalha dentro da Torre de Controle: acompanha cada viagem, cobra as etapas da operação, avisa a equipe quando algo sai do previsto e responde no WhatsApp — de dia, de noite e no fim de semana.</p>
-   </div>
-   <ul class="lista-check">
-    <li>Confere saída, entregas e chegada de cada caminhão</li>
-    <li>Cobra comprovantes, fotos e documentos da viagem</li>
-    <li>Escala para o responsável quando algo precisa de decisão</li>
-    <li>Mantém o cliente informado em tempo real</li>
-   </ul>
-   <div class="chat">
-    <div class="l esq"><div><div class="quem">Cliente</div><div class="b">Ravi, o caminhão da minha carga já saiu?</div></div></div>
-    <div class="l dir"><div><div class="quem" style="text-align:right">Ravi · RF Logística</div><div class="b">Saiu às 06:12 da base de Feira de Santana. Previsão da primeira entrega: 09:40. Te aviso quando concluir. 🚚</div></div></div>
-  </div>
-  </div>
- </div>
-</section>
-
-<section class="bloco eco" id="ecossistema">
- <div class="wrap">
-  <div class="titulo" style="text-align:center;margin:0 auto 20px">
-   <span class="tag" style="justify-content:center">Tecnologia própria</span>
-   <h2>Não é só um sistema. É um <span class="ouro">ecossistema.</span></h2>
-   <p>O <b>Rodavia 360</b> foi criado dentro da RF para conectar estrada, escritório e cliente numa só plataforma. Cada parte conversa com a outra — e o Ravi conversa com todas.</p>
-  </div>
-  <div class="orbita">
-   <div class="anel"></div>
-   <div class="nucleo"><div><b>RODAVIA <span>360</span></b><small>ecossistema RF</small></div></div>
-   <div class="mod" style="left:50%;top:7%"><h4>Torre de Controle</h4><p>Monitoramento 24h, alertas e rastreamento da frota.</p></div>
-   <div class="mod" style="left:84%;top:28%"><h4>Ravi IA</h4><p>Assistente que acompanha, cobra e informa pelo WhatsApp.</p></div>
-   <div class="mod" style="left:84%;top:72%"><h4>App do Motorista</h4><p>Viagem, entregas, fotos, km e abastecimento no celular.</p></div>
-   <div class="mod" style="left:50%;top:93%"><h4>Portal do Cliente</h4><p>Acompanhamento e documentos da carga em um só lugar.</p></div>
-   <div class="mod" style="left:16%;top:72%"><h4>Gestão de Frota</h4><p>Manutenção, consumo, disponibilidade e custo por caminhão.</p></div>
-   <div class="mod" style="left:16%;top:28%"><h4>Fiscal e Financeiro</h4><p>CT-e, MDF-e, custos e resultado de cada viagem.</p></div>
-  </div>
-  <p class="eco-frase">Para o cliente, isso significa <b>informação certa, na hora certa</b> — e uma operação que melhora todos os dias.</p>
- </div>
-</section>
-
-<section class="bloco serv" id="servicos">
- <div class="wrap">
-  <div class="titulo">
-   <span class="tag">Quem somos</span>
-   <h2>Especialistas em <span class="ouro">transporte regional</span> de cargas.</h2>
-   <p>Com matriz em Feira de Santana — o maior entroncamento rodoviário do Nordeste —, a RF Logística atua no transporte rodoviário e na distribuição de cargas, unindo processos bem definidos, equipe capacitada e foco em qualidade. <b class="ouro">Já levamos cargas a todas as cidades da Bahia e a todo o Nordeste.</b></p>
-  </div>
-  <div class="grid">
-   <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M2 16V7h11v9M13 10h4l4 4v2h-8"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg></div><h3>Transporte rodoviário</h3><p>Cargas fechadas e fracionadas para qualquer cidade da Bahia e do Nordeste, com frota própria de tocos e 3/4.</p></div>
-   <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4z"/><path d="M3 7v10l9 4 9-4V7"/></svg></div><h3>Distribuição</h3><p>Roteirização planejada, múltiplas entregas por viagem e comprovante de cada cliente.</p></div>
-   <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></div><h3>Contratos dedicados</h3><p>Frota e equipe dedicadas à sua operação, com indicadores e acompanhamento diário.</p></div>
-  </div>
-  <div class="segmentos">
-   <span>Papel e celulose</span><span>Motocicletas e náutica</span><span>Varejo e atacado</span><span>E-commerce</span><span>Indústria</span><span>Operadores logísticos</span>
-  </div>
- </div>
-</section>
-
-<section class="bloco dif">
- <div class="wrap">
-  <div class="titulo">
-   <span class="tag">O que você ganha</span>
-   <h2>Logística bem feita é <span class="ouro">previsibilidade.</span></h2>
-  </div>
-  <div class="grid">
-   <div class="card"><h3>Operação segura</h3><p>Motoristas treinados, gerenciamento de risco e carga segurada.</p></div>
-   <div class="card"><h3>Prazos confiáveis</h3><p>Planejamento de capacidade e acompanhamento de cada etapa.</p></div>
-   <div class="card"><h3>Cuidado com a carga</h3><p>Manuseio responsável e conformidade com o tipo de produto.</p></div>
-   <div class="card"><h3>Canal direto</h3><p>Fale com o comercial e acompanhe o serviço sem intermediários.</p></div>
-  </div>
- </div>
-</section>
-
-<section class="bloco contato" id="contato">
- <div class="wrap grid">
-  <div>
-   <span class="tag">Contato</span>
-   <div class="titulo" style="margin-bottom:20px">
-    <h2>Vamos colocar sua carga <span class="ouro">na estrada?</span></h2>
-    <p>Conte o que você precisa transportar e retornamos com a melhor solução.</p>
-   </div>
-   <div class="info">
-    <div><div class="ico" style="margin:0"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></div><div><b>(75) 99971-7578</b><small>WhatsApp e telefone</small></div></div>
-    <div><div class="ico" style="margin:0"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div><div><b>comercial@rflogistica.com.br</b><small>Comercial</small></div></div>
-    <div><div class="ico" style="margin:0"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/></svg></div><div><b>Edifício Ícone Tower, sala 807</b><small>Av. Getúlio Vargas, 792 — Centro — Feira de Santana/BA</small></div></div>
-    <div><div class="ico" style="margin:0"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><b>Segunda a sexta, 8h às 18h</b><small>Torre de Controle 24 horas</small></div></div>
-   </div>
-  </div>
-  <form class="form" onsubmit="return enviarCotacao(event)">
-   <h3>Solicite uma cotação</h3>
-   <div class="dois"><div><label>Nome</label><input id="f-nome" required></div><div><label>Empresa</label><input id="f-emp"></div></div>
-   <div class="dois"><div><label>Telefone / WhatsApp</label><input id="f-tel" required></div><div><label>E-mail</label><input id="f-mail" type="email"></div></div>
-   <div class="dois"><div><label>Origem</label><input id="f-ori" placeholder="Cidade/UF"></div><div><label>Destino</label><input id="f-des" placeholder="Cidade/UF"></div></div>
-   <label>Tipo de serviço</label>
-   <select id="f-tipo"><option>Transporte rodoviário</option><option>Distribuição</option><option>Contrato dedicado</option><option>Outro</option></select>
-   <label>Detalhes da carga</label>
-   <textarea id="f-obs" rows="3" placeholder="Tipo de produto, peso, volumes, frequência..."></textarea>
-   <button class="btn btn-ouro" type="submit">Enviar pelo WhatsApp →</button>
-  </form>
- </div>
-</section>
-
-<footer>
- <div class="wrap">
-  <img src="assets/logo-rf.png" alt="RF Logística">
-  <div>RF Logística Transportes &amp; Distribuição Ltda · CNPJ 24.916.554/0001-00 · Feira de Santana/BA</div>
-  <div class="selo-v">SITE v1 · 02/11/2026</div>
- </div>
-</footer>
-
-<a class="zap" href="https://wa.me/5575999717578?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20RF%20Log%C3%ADstica" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.2 1.4 2.5 1.5.3.2.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg></a>
-
 <script>
-const SISTEMA = { codigo: "SITE", nome: "Site institucional RF Logística", versao: "v1", data: "2026-11-02" };
-console.log("[RF] " + SISTEMA.nome + " " + SISTEMA.versao + " (" + SISTEMA.data + ")");
-function enviarCotacao(e){
-  e.preventDefault();
-  const v = id => (document.getElementById(id).value || "").trim();
-  const t = "*Pedido de cotação pelo site*\n" +
-    "Nome: " + v("f-nome") + "\nEmpresa: " + v("f-emp") + "\nTelefone: " + v("f-tel") + "\nE-mail: " + v("f-mail") +
-    "\nOrigem: " + v("f-ori") + "\nDestino: " + v("f-des") + "\nServiço: " + v("f-tipo") + "\nDetalhes: " + v("f-obs");
-  window.open("https://wa.me/5575999717578?text=" + encodeURIComponent(t), "_blank");
-  return false;
+document.addEventListener("DOMContentLoaded", function(){
+
+/* pega o favicon já carregado pelo WP */
+let favicon = document.querySelector("link[rel*='icon']");
+
+if(favicon){
+document.getElementById("preloader-logo").src = favicon.href;
 }
+
+window.addEventListener("load", function(){
+setTimeout(function(){
+document.getElementById("site-preloader").classList.add("hide");
+},2000);
+});
+
+});
+</script>
+
+<div class="rfx-selo-versao">SITE v2 · 02/11/2026</div>
+<script>
+const SISTEMA={codigo:"SITE",nome:"Site institucional RF Logística",versao:"v2",data:"2026-11-02",cliente:"RF Logística"};
+console.log("%c"+SISTEMA.codigo+" "+SISTEMA.versao+" · "+SISTEMA.nome+" · "+SISTEMA.data,"color:#F2C627;background:#1B1B1B;padding:2px 6px;font-weight:bold");
+/* formulário de cotação (pop-up): envia pelo WhatsApp da RF */
+document.addEventListener("submit",function(e){
+  var f=e.target; if(!f.classList||!f.classList.contains("elementor-form")) return;
+  e.preventDefault(); e.stopImmediatePropagation();
+  var t=[]; f.querySelectorAll("input,textarea,select").forEach(function(c){
+    if(c.type==="hidden"||c.type==="submit"||!c.value) return;
+    var l=f.querySelector('label[for="'+c.id+'"]'); t.push((l?l.textContent.trim():(c.placeholder||c.name))+": "+c.value);
+  });
+  window.open("https://wa.me/5575999717578?text="+encodeURIComponent("Olá, RF Logística! Gostaria de uma cotação.\n"+t.join("\n")),"_blank");
+},true);
 </script>
 </body>
 </html>
