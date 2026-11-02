@@ -7,7 +7,7 @@
 	<title>RF Logística &#8211; Transporte rodoviário de cargas</title>
 <meta name="rf-sistema" content="SITE">
 <meta name="rf-sistema-nome" content="Site institucional RF Logística">
-<meta name="rf-versao" content="v2.3">
+<meta name="rf-versao" content="v2.4">
 <meta name="rf-data" content="2026-11-02">
 <meta name="rf-cliente" content="RF Logística">
 <link rel='stylesheet' id='rf-novidades-css' href='/assets/rf/rf-novidades.css' media='all' />
@@ -426,6 +426,41 @@ opacity: 0 !important;
  </div>
 </section>
 
+
+<section class="rfx rfx-3d" id="carregamento-3d">
+ <div class="rfx-wrap">
+  <div class="rfx-grid2">
+   <div>
+    <span class="olho">Carregamento inteligente</span>
+    <h2>Baú montado em <span class="ouro">3D</span> e etiqueta por <span class="ouro">bipagem</span></h2>
+    <p>O sistema monta o baú em 3D por cliente e na ordem das entregas. Na doca, cada caixa é bipada e recebe na hora a etiqueta certa, com cliente, parada e lugar no baú.</p>
+  <div class="rfx-ganhos">
+   <span>Nenhuma etiqueta trocada</span><span>Menos tempo de doca</span><span>Gestor acompanha em tempo real</span>
+  </div>
+    
+   </div>
+   <div class="rfx-3dvis">
+    <div class="caixa3d"><svg viewBox="0 70 480 250" role="img" aria-label="Exemplo da montagem do baú em 3D, por cliente e na ordem das entregas">
+ <polygon points="40,135 380,135 420,105 80,105" fill="#2a2a2a"/>
+ <g><polygon points="60,150 112,150 112,270 60,270" fill="#DB2777" stroke="#111" stroke-width="2"/><polygon points="60,150 112,150 152,120 100,120" fill="#DB2777" opacity=".75" stroke="#111" stroke-width="2"/><text x="86" y="216" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="18" fill="#fff">06</text></g><g><polygon points="112,150 164,150 164,270 112,270" fill="#65A30D" stroke="#111" stroke-width="2"/><polygon points="112,150 164,150 204,120 152,120" fill="#65A30D" opacity=".75" stroke="#111" stroke-width="2"/><text x="138" y="216" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="18" fill="#fff">05</text></g><g><polygon points="164,150 216,150 216,270 164,270" fill="#16A34A" stroke="#111" stroke-width="2"/><polygon points="164,150 216,150 256,120 204,120" fill="#16A34A" opacity=".75" stroke="#111" stroke-width="2"/><text x="190" y="216" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="18" fill="#fff">04</text></g><g><polygon points="216,150 268,150 268,270 216,270" fill="#F59E0B" stroke="#111" stroke-width="2"/><polygon points="216,150 268,150 308,120 256,120" fill="#F59E0B" opacity=".75" stroke="#111" stroke-width="2"/><text x="242" y="216" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="18" fill="#fff">03</text></g><g><polygon points="268,150 320,150 320,270 268,270" fill="#7C3AED" stroke="#111" stroke-width="2"/><polygon points="268,150 320,150 360,120 308,120" fill="#7C3AED" opacity=".75" stroke="#111" stroke-width="2"/><text x="294" y="216" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="18" fill="#fff">02</text></g><g><polygon points="320,150 372,150 372,270 320,270" fill="#0891B2" stroke="#111" stroke-width="2"/><polygon points="320,150 372,150 412,120 360,120" fill="#0891B2" opacity=".75" stroke="#111" stroke-width="2"/><text x="346" y="216" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="18" fill="#fff">01</text></g>
+ <polygon points="372,150 412,120 412,240 372,270" fill="#0d0d0d" stroke="#111" stroke-width="2"/>
+ <rect x="40" y="270" width="372" height="10" fill="#111"/>
+ <circle cx="110" cy="292" r="20" fill="#111"/><circle cx="110" cy="292" r="8" fill="#F2C627"/>
+ <circle cx="330" cy="292" r="20" fill="#111"/><circle cx="330" cy="292" r="8" fill="#F2C627"/>
+</svg><div class="leg">Cada cor é um cliente · número = ordem da parada<br>Fundo do baú = última entrega · porta = 1ª entrega</div></div>
+    <div class="etq" aria-label="Exemplo de etiqueta">
+     <div class="etq-top"><b>RF LOGÍSTICA</b><span>10×15</span></div>
+     <div class="etq-par">PARADA <b>03</b></div>
+     <div class="etq-row"><span>PALETE</span><b>02</b></div>
+     <div class="etq-row"><span>CLIENTE</span><b>Cliente 07</b></div>
+     <div class="etq-row"><span>VOLUME</span><b>3 de 5</b></div>
+     <div class="etq-bar"></div>
+    </div>
+   </div>
+  </div>
+
+ </div>
+</section>
 <section class="rfx rfx-portal" id="portal-do-cliente">
  <div class="rfx-wrap">
   <div class="rfx-grid2">
@@ -901,9 +936,9 @@ document.getElementById("site-preloader").classList.add("hide");
 });
 </script>
 
-<div class="rfx-selo-versao">SITE v2.3 · 02/11/2026</div>
+<div class="rfx-selo-versao">SITE v2.4 · 02/11/2026</div>
 <script>
-const SISTEMA={codigo:"SITE",nome:"Site institucional RF Logística",versao:"v2.3",data:"2026-11-02",cliente:"RF Logística"};
+const SISTEMA={codigo:"SITE",nome:"Site institucional RF Logística",versao:"v2.4",data:"2026-11-02",cliente:"RF Logística"};
 console.log("%c"+SISTEMA.codigo+" "+SISTEMA.versao+" · "+SISTEMA.nome+" · "+SISTEMA.data,"color:#F2C627;background:#1B1B1B;padding:2px 6px;font-weight:bold");
 /* formulário de cotação (pop-up): envia pelo WhatsApp da RF */
 document.addEventListener("submit",function(e){

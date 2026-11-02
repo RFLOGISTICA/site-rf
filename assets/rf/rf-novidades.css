@@ -151,3 +151,28 @@
  .elementor-386 .elementor-element.elementor-element-51fff1a{max-width:min(950px, calc(100% - 300px))!important;width:auto!important}
  .elementor-386 .elementor-element.elementor-element-3fb9051{max-width:min(713px, calc(100% - 260px))!important}
 }
+
+/* v2.4: carregamento 3D + etiquetagem */
+.rfx-3d{padding:10px 0 80px;background:#fff}
+.rfx-passos{list-style:none;counter-reset:p;padding:0;margin:20px 0 0;display:grid;gap:12px}
+.rfx-passos li{counter-increment:p;position:relative;padding:14px 16px 14px 60px;background:#F5F5F5;border-radius:20px;font-size:14px}
+.rfx-passos li:before{content:counter(p);position:absolute;left:14px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:#1B1B1B;color:#F2C627;font-weight:800;font-style:italic;display:flex;align-items:center;justify-content:center}
+.rfx-passos li b{display:block;font-size:15px;font-style:italic;text-transform:uppercase;margin-bottom:2px}
+.rfx-3dvis{position:relative}
+.rfx-3dvis .caixa3d{background:#1B1B1B;border-radius:30px;padding:24px 20px 16px}
+.rfx-3dvis .caixa3d svg{width:100%;height:auto;display:block}
+.rfx-3dvis .caixa3d svg text[fill="#555"]{fill:#bbb}
+.rfx-3dvis .leg{color:#ddd;font-size:13px;text-align:center;margin-top:6px}
+.rfx-3dvis .etq{position:absolute;right:-14px;bottom:-30px;width:190px;background:#fff;border-radius:10px;box-shadow:0 18px 40px -12px rgba(0,0,0,.45);padding:12px 14px;font-family:"Montserrat",Sans-serif;transform:rotate(3deg);border:1px solid #ddd}
+.etq-top{display:flex;justify-content:space-between;font-size:11px;border-bottom:2px solid #111;padding-bottom:5px;margin-bottom:6px}
+.etq-par{font-size:13px;font-weight:600}.etq-par b{font-size:30px;font-weight:900;font-style:italic;margin-left:4px}
+.etq-row{display:flex;justify-content:space-between;font-size:12px;padding:2px 0}.etq-row span{color:#666}
+.etq-bar{height:26px;margin-top:6px;background:repeating-linear-gradient(90deg,#111 0 2px,#fff 2px 4px,#111 4px 5px,#fff 5px 8px)}
+.rfx-ganhos{display:flex;flex-wrap:wrap;gap:10px;margin-top:56px;justify-content:center}
+.rfx-ganhos span{background:#1B1B1B;color:#fff;border-radius:30px;padding:9px 16px;font-size:13px;font-weight:600}
+.rfx-ganhos span:before{content:"✓ ";color:#F2C627;font-weight:800}
+@media (max-width:767px){.rfx-3dvis .etq{position:relative;right:auto;bottom:auto;margin:-20px auto 0;transform:rotate(2deg)}.rfx-ganhos{margin-top:30px}}
+@media (min-width:768px){.rfx-3dvis .etq{bottom:-95px;right:-10px}.rfx-3dvis .leg{text-align:left}.rfx-3dvis{margin-bottom:70px}}
+.rfx-3d .rfx-grid2{align-items:center}
+.rfx-3d .rfx-ganhos{justify-content:flex-start;margin-top:22px}
+@media (min-width:768px){.rfx-3d .rfx-ganhos{max-width:520px}}
