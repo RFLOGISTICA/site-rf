@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fracionado RF – Espaço em caminhão na Bahia | RF Logística</title>
+<title>Fretes Disponíveis – espaço em caminhão na Bahia | RF Logística</title>
 <meta name="description" content="Compre só o espaço que precisa em caminhões da RF Logística que já rodam a Bahia. Rotas de ida e volta, peso e volume livres, preço na hora.">
 <meta name="rf-sistema" content="RFL"><meta name="rf-pagina" content="fracionado-vitrine"><meta name="rf-versao" content="v870">
 <link rel="icon" href="/wp-content/uploads/2026/03/Logo-RF-Fav-150x150.png">
@@ -55,23 +55,30 @@ footer{border-top:1px solid rgba(212,160,23,.3);padding:18px 20px;color:var(--t2
 .wa{position:fixed;right:16px;bottom:16px;background:var(--ouro);color:#000;font-weight:800;border-radius:999px;padding:12px 16px;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.6)}
 #sug{position:absolute;z-index:9;background:#111;border:1px solid var(--ouro);border-radius:8px;display:none;max-height:220px;overflow:auto}
 #sug div{padding:7px 10px;font-size:13.5px;cursor:pointer}#sug div:hover{background:#2a2108}
+.kick{font-size:12px;letter-spacing:2px;color:var(--ouro);font-weight:800;margin-bottom:8px}
+.cids{max-width:1180px;margin:0 auto;padding:0 20px 24px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;max-height:300px;overflow:auto}
+.chip{border:1px solid #333;border-radius:10px;padding:7px 10px;font-size:13px;background:#0c0c0c;cursor:pointer;display:flex;flex-direction:column;min-width:130px}
+.chip:hover{border-color:var(--ouro)}.chip b{color:#eee;font-size:13.5px}.chip span{color:var(--t2);font-size:11.5px}.chip em{font-style:normal;color:var(--ouro2);font-weight:700}
+.of .ap{color:var(--ouro2);font-weight:800}
 </style>
 </head>
 <body>
 <header class="top">
   <a href="/"><img src="/wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-768x250.png" alt="RF Logística"></a>
-  <nav><a href="/">Início</a><a class="so-pc" href="/servicos/">Serviços</a><a href="/fretes/" style="color:var(--ouro2)">Fracionado</a><a class="so-pc" href="/faq/">FAQ</a></nav>
+  <nav><a href="/">Início</a><a class="so-pc" href="/servicos/">Serviços</a><a href="/fretes/" style="color:var(--ouro2)">Fretes Disponíveis</a><a class="so-pc" href="/faq/">FAQ</a></nav>
 </header>
 
 <section class="hero">
+  <div class="kick">FRETES DISPONÍVEIS · FRACIONADO RF</div>
   <h1>Pague só pelo <b>espaço</b> que a sua carga ocupa.</h1>
   <p>O <b>Fracionado RF</b> vende o espaço livre dos caminhões que já rodam a Bahia — na <b>ida</b> e na <b>volta</b>. Escolha a rota, veja o baú, informe peso e medidas e receba o preço na hora. Não tem viagem para o seu destino? Peça mesmo assim: a sua solicitação entra na nossa programação de rotas.</p>
-  <div class="pills"><span class="pill">🚚 Frota própria</span><span class="pill">📍 Rastreamento em tempo real</span><span class="pill">🧾 CT-e e comprovante de entrega</span><span class="pill">💬 Atendimento pelo WhatsApp</span></div>
+  <div class="pills"><span class="pill">🔓 Cote sem cadastro</span><span class="pill">🚚 Frota própria</span><span class="pill">📍 Rastreamento em tempo real</span><span class="pill">🧾 CT-e e comprovante de entrega</span><span class="pill">💬 Atendimento pelo WhatsApp</span></div>
 </section>
 
 <main class="wrap">
   <section class="box">
-    <h2>Rotas com espaço</h2>
+    <h2>Próximas saídas com espaço</h2>
     <div class="filtros"><button data-f="todas" class="on">Todas</button><button data-f="ida">Ida (saindo de Feira)</button><button data-f="volta">Volta (chegando em Feira)</button><button data-f="confirmado">Só confirmadas</button></div>
     <div class="lista" id="lista"><div class="vazio">Carregando rotas…</div></div>
     <p class="aviso"><b>Estimado</b> = espaço calculado pela programação do caminhão, ainda sem conferência no carregamento. <b>Confirmado</b> = espaço conferido pela nossa operação. Nos dois casos você pode cotar; o embarque só é garantido depois da confirmação do espaço e da documentação.</p>
@@ -103,7 +110,7 @@ footer{border-top:1px solid rgba(212,160,23,.3);padding:18px 20px;color:var(--t2
       <p class="aviso" id="rAviso"></p>
       <form id="f2" onsubmit="return false" style="margin-top:8px">
         <label class="full">Empresa<input id="empresa" required></label>
-        <label>CNPJ<input id="cnpj" inputmode="numeric"></label>
+        <label>CNPJ ou CPF <span>pode informar depois</span><input id="cnpj" inputmode="numeric"></label>
         <label>Seu nome<input id="contato" required></label>
         <label>E-mail<input id="email" type="email"></label>
         <label>WhatsApp<input id="tel" inputmode="tel" placeholder="(75) 9…"></label>
@@ -111,12 +118,22 @@ footer{border-top:1px solid rgba(212,160,23,.3);padding:18px 20px;color:var(--t2
         <label class="full">Observações<textarea id="obs" rows="2"></textarea></label>
         <input class="hp" id="site" tabindex="-1" autocomplete="off">
         <label class="chk full"><input id="aceite" type="checkbox"> Entendo que é uma cotação: o embarque depende da confirmação do espaço, da conferência da carga e da documentação (NF-e), e a mercadoria passa por análise de aceitação.</label>
-        <div class="full"><button class="btn" id="bCot" type="button">Solicitar transporte</button></div>
+        <div class="full"><button class="btn" id="bCot" type="button">Solicitar transporte</button><p class="aviso" style="margin-top:6px">Cotar e solicitar não exigem cadastro nem login. O cadastro da empresa (CNPJ/CPF e dados da nota) só é pedido para <b>fechar a contratação</b>. O acompanhamento detalhado da carga fica no portal do cliente, com login.</p></div>
       </form>
       <div class="msg" id="msg"></div>
     </div>
   </section>
 </main>
+
+<section class="cids">
+  <div class="box">
+    <h2>Cidades atendidas</h2>
+    <p class="aviso" style="margin:0 0 10px">Cidades por onde os nossos caminhões passaram nos últimos 90 dias, saindo e chegando em <b>Feira de Santana</b>. Toque numa cidade para cotar.</p>
+    <input id="fcid" placeholder="Procurar cidade…" style="max-width:320px;margin-bottom:10px">
+    <div class="chips" id="chips"><div class="vazio">Carregando cidades…</div></div>
+    <p class="aviso" id="cidRod"></p>
+  </div>
+</section>
 
 <section class="como">
   <div><b>1. Escolha a rota</b>Ida saindo de Feira de Santana ou volta do interior para Feira. Sem rota? Peça assim mesmo.</div>
@@ -147,7 +164,7 @@ function lista(){
     var conf = o.disponivel.tipo==="confirmado";
     var cid = o.cidades.slice(0,10).join(" · ") + (o.cidades.length>10 ? " · +" + (o.cidades.length-10) : "");
     return '<div class="of'+(SEL&&SEL.id===o.id?" sel":"")+'" data-id="'+o.id+'"><div class="l1"><span class="rota">'+(o.sentido==="ida"?"➡️ ":"⬅️ ")+esc(o.origem)+' → '+esc(o.destino)+'</span><span class="tag '+(conf?"conf":"est")+'">'+(conf?"Confirmado":"Estimado")+'</span></div>'
-      + '<div class="cid">'+esc(cid)+'</div><div class="l3"><span>Saída <b>'+br(o.data_saida)+'</b></span><span>Livre <b>'+kg(o.disponivel.kg)+'</b>'+(o.disponivel.m3?' · <b>'+String(o.disponivel.m3).replace(".",",")+' m³</b>':'')+'</span><span>'+esc(o.veiculo)+'</span></div>'
+      + '<div class="cid">'+esc(cid)+'</div><div class="l3"><span>Saída <b>'+br(o.data_saida)+'</b></span><span>Livre <b>'+kg(o.disponivel.kg)+'</b>'+(o.disponivel.m3?' · <b>'+String(o.disponivel.m3).replace(".",",")+' m³</b>':'')+'</span><span>'+esc(o.veiculo)+'</span>'+(o.a_partir?'<span class="ap">a partir de '+R(o.a_partir)+'</span>':'')+'</div>'
       + '<div class="barra"><i style="width:'+Math.round(o.ocupacao*100)+'%"></i></div></div>';
   }).join("");
   Array.prototype.forEach.call(document.querySelectorAll(".of"), function(el){ el.onclick = function(){ escolher(el.getAttribute("data-id")); }; });
@@ -269,6 +286,16 @@ $("bCot").onclick = function(){
 };
 ["peso","m3"].forEach(function(id){ $(id).addEventListener("input", function(){ if(SEL) bau(SEL, Number($("peso").value||0), Number(String($("m3").value||0).replace(",","."))); }); });
 
+var CIDS = [];
+function chips(){
+  var q = String($("fcid").value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim();
+  var l = CIDS.filter(function(c){ return !q || c.cidade.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().indexOf(q) >= 0; });
+  $("chips").innerHTML = l.length ? l.map(function(c){ return '<div class="chip" data-i="'+CIDS.indexOf(c)+'"><b>'+esc(c.cidade)+'/'+esc(c.uf)+'</b><span>'+(c.viagens>=6?"rota frequente":c.viagens>=3?"rota regular":"atendida")+' · a partir de <em>'+R(c.a_partir)+'</em></span></div>'; }).join("") : '<div class="vazio">Não achei essa cidade na lista. Cote mesmo assim — a solicitação entra na nossa programação de rotas.</div>';
+  Array.prototype.forEach.call(document.querySelectorAll(".chip"), function(el){ el.onclick = function(){ var c = CIDS[+el.getAttribute("data-i")]; if(!c) return; $("destino").value = c.cidade + "/" + c.uf; $("origem").value = "Feira de Santana/BA"; $("oferta").value = ""; $("peso").focus(); $("f").scrollIntoView({behavior:"smooth",block:"center"}); }; });
+}
+$("fcid").oninput = chips;
+api({acao:"atendidas"}).then(function(j){ CIDS = (j && j.cidades) || []; chips(); $("cidRod").textContent = CIDS.length ? CIDS.length + " cidades atendidas. O preço final depende do peso, do volume e da distância; o valor \"a partir de\" é o frete mínimo da faixa." : ""; })
+  .catch(function(){ $("chips").innerHTML = '<div class="vazio">Não consegui carregar as cidades agora.</div>'; });
 api({acao:"ofertas"}).then(function(j){ OFS = (j && j.ofertas) || []; lista(); if(OFS[0]) escolher(OFS[0].id); else bau({cap_kg:8500,cap_m3:36.4,ocupacao:0,disponivel:{kg:0,m3:0},medidas_estimadas:true},0,0); })
   .catch(function(){ $("lista").innerHTML = '<div class="vazio">Não consegui carregar as rotas agora. Você pode cotar mesmo assim.</div>'; });
 console.log("RF Fracionado — vitrine pública (RFL v870)");
