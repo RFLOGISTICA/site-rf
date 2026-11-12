@@ -117,7 +117,7 @@ footer{border-top:1px solid rgba(212,160,23,.3);padding:18px 20px;color:var(--t2
         <label>Data desejada<input id="data" type="date"></label>
         <label class="full">Observações<textarea id="obs" rows="2"></textarea></label>
         <input class="hp" id="site" tabindex="-1" autocomplete="off">
-        <label class="chk full"><input id="aceite" type="checkbox"> Entendo que é uma cotação: o embarque depende da confirmação do espaço, da conferência da carga e da documentação (NF-e), e a mercadoria passa por análise de aceitação.</label>
+        <label class="chk full"><input id="aceite" type="checkbox"> Entendo que é uma cotação: o embarque depende da confirmação do espaço, da conferência da carga e da documentação (NF-e), e a mercadoria passa por análise de aceitação. Autorizo a RF a falar comigo sobre esta cotação pelo WhatsApp ou e-mail informado.</label>
         <div class="full"><button class="btn" id="bCot" type="button">Solicitar transporte</button><p class="aviso" style="margin-top:6px">Cotar e solicitar não exigem cadastro nem login. O cadastro da empresa (CNPJ/CPF e dados da nota) só é pedido para <b>fechar a contratação</b>. O acompanhamento detalhado da carga fica no portal do cliente, com login.</p></div>
       </form>
       <div class="msg" id="msg"></div>
@@ -155,7 +155,8 @@ function br(d){ return d ? String(d).slice(0,10).split("-").reverse().join("/") 
 function R(v){ return "R$ " + Number(v||0).toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2}); }
 function kg(v){ return Number(v||0).toLocaleString("pt-BR",{maximumFractionDigits:0}) + " kg"; }
 function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
-function api(body){ return fetch(API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}).then(function(r){return r.json();}); }
+var SID = (function(){ try { var k = localStorage.getItem("frc_sid"); if(!k){ k = (Date.now().toString(36) + Math.random().toString(36).slice(2,10)); localStorage.setItem("frc_sid", k); } return k; } catch(e){ return Date.now().toString(36) + Math.random().toString(36).slice(2,10); } })();
+function api(body){ if(body && (body.acao==="simular" || body.acao==="visita")) body.s = SID; return fetch(API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}).then(function(r){return r.json();}); }
 
 function lista(){
   var l = OFS.filter(function(o){ return FILTRO==="todas" || o.sentido===FILTRO || (FILTRO==="confirmado" && o.disponivel.tipo==="confirmado"); });
@@ -294,6 +295,7 @@ function chips(){
   Array.prototype.forEach.call(document.querySelectorAll(".chip"), function(el){ el.onclick = function(){ var c = CIDS[+el.getAttribute("data-i")]; if(!c) return; $("destino").value = c.cidade + "/" + c.uf; $("origem").value = "Feira de Santana/BA"; $("oferta").value = ""; $("peso").focus(); $("f").scrollIntoView({behavior:"smooth",block:"center"}); }; });
 }
 $("fcid").oninput = chips;
+api({acao:"visita"}).catch(function(){});
 api({acao:"atendidas"}).then(function(j){ CIDS = (j && j.cidades) || []; chips(); $("cidRod").textContent = CIDS.length ? CIDS.length + " cidades atendidas. O preço final depende do peso, do volume e da distância; o valor \"a partir de\" é o frete mínimo da faixa." : ""; })
   .catch(function(){ $("chips").innerHTML = '<div class="vazio">Não consegui carregar as cidades agora.</div>'; });
 api({acao:"ofertas"}).then(function(j){ OFS = (j && j.ofertas) || []; lista(); if(OFS[0]) escolher(OFS[0].id); else bau({cap_kg:8500,cap_m3:36.4,ocupacao:0,disponivel:{kg:0,m3:0},medidas_estimadas:true},0,0); })
