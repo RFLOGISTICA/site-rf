@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fretes Disponíveis – espaço em caminhão na Bahia | RF Logística</title>
 <meta name="description" content="Compre só o espaço que precisa em caminhões da RF Logística que já rodam a Bahia. Rotas de ida e volta, peso e volume livres, preço na hora.">
-<meta name="rf-sistema" content="RFL"><meta name="rf-pagina" content="fracionado-vitrine"><meta name="rf-versao" content="v870">
+<meta name="rf-sistema" content="RFL"><meta name="rf-pagina" content="fracionado-vitrine"><meta name="rf-versao" content="v878">
 <link rel="icon" href="/wp-content/uploads/2026/03/Logo-RF-Fav-150x150.png">
 <style>
 :root{--ouro:#D4A017;--ouro2:#F2C94C;--preto:#000;--c1:#0b0b0b;--c2:#141414;--t:#f2f2f2;--t2:#b9b9b9}
@@ -66,7 +66,7 @@ footer{border-top:1px solid rgba(212,160,23,.3);padding:18px 20px;color:var(--t2
 <body>
 <header class="top">
   <a href="/"><img src="/wp-content/uploads/2026/03/RF_LOGISTICA_LOGO_SEM_FUNDO-1-768x250.png" alt="RF Logística"></a>
-  <nav><a href="/">Início</a><a class="so-pc" href="/servicos/">Serviços</a><a href="/fretes/" style="color:var(--ouro2)">Fretes Disponíveis</a><a class="so-pc" href="/faq/">FAQ</a></nav>
+  <nav><a href="/">Início</a><a class="so-pc" href="/servicos/">Serviços</a><a href="/fretes/" style="color:var(--ouro2)">Fretes Disponíveis</a><a href="/cliente/">Área do Cliente</a><a class="so-pc" href="/faq/">FAQ</a></nav>
 </header>
 
 <section class="hero">
@@ -142,7 +142,7 @@ footer{border-top:1px solid rgba(212,160,23,.3);padding:18px 20px;color:var(--t2
   <div><b>4. Acompanhe</b>CT-e da sua carga, rastreamento e comprovante de entrega — cada cliente vê só a própria mercadoria.</div>
 </section>
 
-<footer>RF Logística Transportes &amp; Distribuição · CNPJ 24.916.554/0001-00 · Feira de Santana/BA · (75) 99971-7578 · comercial@rflogistica.com.br<br>Mercadorias perigosas, armas, valores e cargas sem nota fiscal não são aceitas. Preços da tabela vigente, sujeitos a confirmação.</footer>
+<footer>Já é cliente? Acompanhe suas cargas na <a href="/cliente/">Área do Cliente</a> (código no e-mail, sem senha).<br>RF Logística Transportes &amp; Distribuição · CNPJ 24.916.554/0001-00 · Feira de Santana/BA · (75) 99971-7578 · comercial@rflogistica.com.br<br>Mercadorias perigosas, armas, valores e cargas sem nota fiscal não são aceitas. Preços da tabela vigente, sujeitos a confirmação.</footer>
 <a class="wa" href="https://wa.me/5575999717578?text=Ol%C3%A1!%20Quero%20cotar%20um%20frete%20fracionado." target="_blank" rel="noopener">💬 WhatsApp</a>
 <div id="sug"></div>
 
@@ -165,7 +165,7 @@ function lista(){
     var conf = o.disponivel.tipo==="confirmado";
     var cid = o.cidades.slice(0,10).join(" · ") + (o.cidades.length>10 ? " · +" + (o.cidades.length-10) : "");
     return '<div class="of'+(SEL&&SEL.id===o.id?" sel":"")+'" data-id="'+o.id+'"><div class="l1"><span class="rota">'+(o.sentido==="ida"?"➡️ ":"⬅️ ")+esc(o.origem)+' → '+esc(o.destino)+'</span><span class="tag '+(conf?"conf":"est")+'">'+(conf?"Confirmado":"Estimado")+'</span></div>'
-      + '<div class="cid">'+esc(cid)+'</div><div class="l3"><span>Saída <b>'+br(o.data_saida)+'</b></span><span>Livre <b>'+kg(o.disponivel.kg)+'</b>'+(o.disponivel.m3?' · <b>'+String(o.disponivel.m3).replace(".",",")+' m³</b>':'')+'</span><span>'+esc(o.veiculo)+'</span>'+(o.a_partir?'<span class="ap">a partir de '+R(o.a_partir)+'</span>':'')+'</div>'
+      + '<div class="cid">'+esc(cid)+'</div><div class="l3"><span>Saída <b>'+br(o.data_saida)+'</b></span><span>Livre <b>'+kg(o.disponivel.kg)+'</b>'+(o.disponivel.m3?' · <b>'+String(o.disponivel.m3).replace(".",",")+' m³</b>':'')+'</span><span><b>'+esc(o.caminhao||o.veiculo)+'</b>'+(o.sentido==="ida"&&o.faixa_pct?' · espaço na ida '+o.faixa_pct[0]+'–'+o.faixa_pct[1]+'%':' · volta com o baú livre')+'</span>'+(o.a_partir?'<span class="ap">a partir de '+R(o.a_partir)+'</span>':'')+'</div>'
       + '<div class="barra"><i style="width:'+Math.round(o.ocupacao*100)+'%"></i></div></div>';
   }).join("");
   Array.prototype.forEach.call(document.querySelectorAll(".of"), function(el){ el.onclick = function(){ escolher(el.getAttribute("data-id")); }; });
@@ -265,12 +265,12 @@ $("bSim").onclick = function(){
   api(d).then(function(j){ $("bSim").disabled=false; $("res").style.display="block";
     if(!j.ok){ $("rTot").textContent=""; $("rTab").innerHTML=""; $("rRota").textContent=""; $("rAviso").textContent=""; $("msg").textContent = j.erro || "Não consegui calcular."; return; }
     ULT = j; var p = j.preco;
-    $("rRota").textContent = j.oferta ? ("Rota " + j.oferta.origem + " → " + j.oferta.destino + " · saída " + br(j.oferta.data_saida) + " · espaço " + j.oferta.disponivel.tipo) : "Sem viagem programada para esse trecho agora — a solicitação entra na programação de rotas.";
+    $("rRota").innerHTML = '<b style="color:var(--ouro2)">' + esc(p.titulo || "") + '</b>' + (p.caminhao ? ' · ' + esc(p.caminhao) : '') + '<br>' + esc(p.explicacao || "") + (j.oferta && p.caso === "cabe" ? '<br>Rota ' + esc(j.oferta.origem) + ' → ' + esc(j.oferta.destino) + ' · espaço ' + esc(j.oferta.disponivel.tipo) : '');
     $("rTot").textContent = R(p.total);
-    var rows = '<tr><td>Distância</td><td>'+String(p.dist_km).replace(".",",")+' km (faixa '+p.faixa+')</td></tr><tr><td>Peso cobrado</td><td>'+kg(p.peso_taxado)+' × '+R(p.tarifa)+'/kg</td></tr><tr><td>Frete (mínimo '+R(p.minimo)+')</td><td>'+R(p.frete)+'</td></tr>';
+    var rows = p.caso === "dedicado" ? '<tr><td>Caminhão dedicado (' + esc(p.caminhao || "") + ')</td><td>' + R(p.frete) + '</td></tr>' : '<tr><td>Distância</td><td>'+String(p.dist_km).replace(".",",")+' km (faixa '+p.faixa+')</td></tr><tr><td>Peso cobrado</td><td>'+kg(p.peso_taxado)+' × '+R(p.tarifa)+'/kg</td></tr><tr><td>Frete (mínimo '+R(p.minimo)+')</td><td>'+R(p.frete)+'</td></tr>';
     (p.adicionais||[]).forEach(function(a){ rows += '<tr><td>'+esc(a.item)+'</td><td>'+R(a.valor)+'</td></tr>'; });
     $("rTab").innerHTML = rows;
-    $("rAviso").textContent = (j.oferta && !j.cabe ? "Atenção: a carga passa do espaço livre desta rota — a equipe avalia outra data ou caminhão. " : "") + (j.aviso || "");
+    $("rAviso").textContent = (j.aviso || "") + " Cliente novo: PIX antes do embarque. Cliente com cadastro aprovado: faturado.";
     if(j.oferta){ SEL = OFS.find(function(o){return o.id===j.oferta.id;}) || j.oferta; bau(SEL, d.peso_kg, d.m3); lista(); }
   }).catch(function(){ $("bSim").disabled=false; $("msg").textContent = "Falha de conexão. Tente de novo ou chame no WhatsApp."; });
 };

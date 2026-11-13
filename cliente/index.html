@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Área do Cliente | RF Logística</title>
+<meta name="description" content="Acompanhe suas cargas e viagens com a RF Logística. Entrada sem senha, com código enviado ao seu e-mail.">
+<meta name="robots" content="noindex">
+<meta name="rf-sistema" content="RFL"><meta name="rf-pagina" content="area-do-cliente"><meta name="rf-versao" content="v878">
+<link rel="icon" href="/wp-content/uploads/2026/03/Logo-RF-Fav-150x150.png">
+<style>
+:root{--ouro:#D4A017;--ouro2:#F2C94C;--t:#f2f2f2;--t2:#b9b9b9}
+*{box-sizing:border-box}html,body{margin:0;background:#000;color:var(--t);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+a{color:var(--ouro2)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;border-bottom:1px solid rgba(212,160,23,.35);background:#000;position:sticky;top:0;z-index:5}
+.top img{height:44px}.top nav a{color:#ddd;text-decoration:none;margin-left:16px;font-size:14px}.top nav a:hover{color:var(--ouro2)}
+@media(max-width:560px){.top img{height:34px}.top nav a{margin-left:10px;font-size:13px}.top nav a.so-pc{display:none}}
+.wrap{max-width:1180px;margin:0 auto;padding:22px 20px 40px}
+h1{margin:0 0 6px;font-size:clamp(24px,4vw,38px)}h1 b{color:var(--ouro2)}
+.sub{color:var(--t2);margin:0 0 18px;max-width:760px;line-height:1.5}
+.lay{display:grid;grid-template-columns:340px minmax(0,1fr);gap:18px}@media(max-width:900px){.lay{grid-template-columns:1fr}}
+.box{background:linear-gradient(160deg,#151109,#0a0a0a 45%,#0d0b06);border:1px solid rgba(212,160,23,.45);border-radius:14px;padding:16px;margin-bottom:16px}
+.box h2{margin:0 0 10px;font-size:17px;color:var(--ouro2)}
+label{display:block;font-size:13px;color:var(--t2);margin:10px 0 4px}
+input{width:100%;background:#0c0c0c;border:1px solid #333;border-radius:9px;color:#fff;padding:11px 12px;font-size:15px}input:focus{outline:none;border-color:var(--ouro)}
+input.cod{letter-spacing:10px;font-size:22px;text-align:center}
+.btn{display:block;width:100%;margin-top:12px;background:var(--ouro);color:#000;border:0;border-radius:9px;padding:12px;font-weight:800;font-size:15px;cursor:pointer}
+.btn2{display:block;width:100%;margin-top:10px;background:#000;color:var(--ouro2);border:1px solid var(--ouro);border-radius:9px;padding:11px;font-weight:700;font-size:14px;cursor:pointer}
+.btn:disabled,.btn2:disabled{opacity:.55;cursor:default}
+.mut{color:#9a9a9a;font-size:13px;line-height:1.5}.msg{margin-top:10px;font-size:14px;line-height:1.45}
+table{width:100%;border-collapse:collapse;font-size:14px}th{text-align:left;color:#8a8a8a;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:8px 6px;border-bottom:1px solid #2a2a2a}
+td{padding:9px 6px;border-bottom:1px solid #1d1d1d;vertical-align:top}.r{text-align:right}.g{color:var(--ouro2);font-weight:700}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 8px;border-radius:10px;border:1px solid #5a4a14;background:#1d1909;color:var(--ouro2);white-space:nowrap}
+.tw{overflow-x:auto}.vazio{color:#777;text-align:center;padding:18px;border:1px dashed #333;border-radius:10px;font-size:14px}
+.hd{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+footer{border-top:1px solid #222;color:#777;font-size:12px;text-align:center;padding:18px 20px;line-height:1.6}
+.hide{display:none}
+</style>
+</head>
+<body>
+<div class="top">
+  <a href="/"><img src="/wp-content/uploads/2026/03/Logo-RF-Fav-150x150.png" alt="RF Logística"></a>
+  <nav><a href="/">Início</a><a class="so-pc" href="/servicos/">Serviços</a><a href="/fretes/">Fretes Disponíveis</a><a href="/cliente/" style="color:var(--ouro2)">Área do Cliente</a></nav>
+</div>
+<div class="wrap">
+  <h1>Área do <b>Cliente</b></h1>
+  <p class="sub">Acompanhe suas cargas e viagens com a RF Logística. Sem senha: você informa o CNPJ e o e-mail cadastrado e recebe um código de 6 números.</p>
+
+  <div class="lay" id="vLogin">
+    <div>
+      <div class="box">
+        <h2>Entrar sem senha</h2>
+        <label for="cnpj">1. CNPJ ou CPF da empresa</label><input id="cnpj" inputmode="numeric" autocomplete="off" placeholder="00.000.000/0000-00">
+        <label for="email">2. Seu e-mail cadastrado</label><input id="email" type="email" autocomplete="email" placeholder="voce@empresa.com.br">
+        <button class="btn" id="bCod">Receber código por e-mail</button>
+        <div id="passo2" class="hide">
+          <label for="cod">3. Código de 6 números</label><input id="cod" class="cod" inputmode="numeric" maxlength="6" autocomplete="one-time-code">
+          <button class="btn2" id="bEntrar">Entrar</button>
+        </div>
+        <div class="msg" id="msg"></div>
+        <p class="mut" style="margin-top:12px">Só entra e-mail autorizado para o seu CNPJ. E-mail novo vira pedido de acesso: liberamos em seguida.</p>
+      </div>
+      <div class="box">
+        <h2>Cliente eventual: acompanhar um pedido</h2>
+        <label for="rCod">Nº do pedido ou da cotação</label><input id="rCod" inputmode="numeric">
+        <label for="rCnpj">CNPJ ou CPF</label><input id="rCnpj" inputmode="numeric">
+        <button class="btn2" id="bRast">Acompanhar</button>
+        <div class="msg" id="rMsg"></div>
+      </div>
+    </div>
+    <div>
+      <div class="box">
+        <h2>Próximas saídas com espaço</h2>
+        <div class="tw" id="saidasPub"><div class="vazio">Carregando…</div></div>
+        <p class="mut" style="margin-top:8px">Preço exato na hora em <a href="/fretes/">Fretes Disponíveis</a>. Cliente novo paga por PIX antes do embarque; cliente com cadastro aprovado é faturado.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="vArea" class="hide">
+    <div class="hd"><div><b id="aEmp" style="font-size:20px"></b><div class="mut" id="aInfo"></div></div><button class="btn2" style="width:auto;padding:9px 16px;margin:0" id="bSair">Sair</button></div>
+    <div class="box"><h2>Próximas saídas com espaço</h2><div class="tw" id="saidasCli"></div></div>
+    <div class="box" id="bxFrc"><h2>Minhas cargas (fracionado e lotação)</h2><div class="tw" id="frc"></div></div>
+    <div class="box" id="bxVg"><h2>Viagens do contrato</h2><div class="tw" id="vg"></div></div>
+    <div class="box" id="bxDoc"><h2>Documentos</h2><div class="tw" id="doc"></div><p class="mut" style="margin-top:8px">Consulte o documento pela chave no portal da SEFAZ. Valores do contrato não aparecem aqui.</p></div>
+  </div>
+</div>
+<footer>RF Logística Transportes &amp; Distribuição · CNPJ 24.916.554/0001-00 · Feira de Santana/BA · (75) 99971-7578 · comercial@rflogistica.com.br<br>Seus dados de acesso ficam só com a RF e servem para mostrar as suas cargas. <a href="/privacidade/">Privacidade</a></footer>
+<script>
+var API_C = "https://dpqgqgjhydrztouxscad.supabase.co/functions/v1/cliente-area";
+var API_V = "https://dpqgqgjhydrztouxscad.supabase.co/functions/v1/frc-vitrine";
+function $(i){ return document.getElementById(i); }
+function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+function R(v){ return "R$ " + Number(v||0).toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function kg(v){ return Number(v||0).toLocaleString("pt-BR",{maximumFractionDigits:0}) + " kg"; }
+function br(d){ return d ? String(d).slice(0,10).split("-").reverse().join("/") : "—"; }
+function post(url, body){ return fetch(url,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}).then(function(r){ return r.json(); }); }
+var TOK = null; try { TOK = sessionStorage.getItem("rf_cli_tok"); } catch(e){}
+var OFS = [];
+
+function saidasHTML(placas){
+  if(!OFS.length) return '<div class="vazio">Nenhuma saída com espaço agora. Cote mesmo assim: sua carga entra na programação.</div>';
+  return '<table><tr><th>Caminhão</th><th>Rota</th><th>Saída</th><th class="r">Espaço livre</th><th class="r">A partir de</th></tr>' + OFS.map(function(o){
+    var pl = placas && placas[o.id];
+    return '<tr><td><b>' + esc(pl || o.caminhao) + '</b>' + (pl ? ' · ' + esc(o.caminhao) : '') + '</td><td>' + esc(o.origem) + ' → ' + esc(o.destino) + '<div class="mut">' + (o.sentido === "ida" ? "ida" : "volta") + ' · espaço ' + esc(o.disponivel.tipo) + '</div></td><td>' + br(o.data_saida) + '</td><td class="r g">' + kg(o.disponivel.kg) + '</td><td class="r">' + (o.a_partir ? R(o.a_partir) : "—") + '</td></tr>';
+  }).join("") + '</table>';
+}
+post(API_V,{acao:"ofertas"}).then(function(j){ OFS = (j && j.ofertas) || []; $("saidasPub").innerHTML = saidasHTML(null); }).catch(function(){ $("saidasPub").innerHTML = '<div class="vazio">Não consegui carregar as saídas agora.</div>'; });
+
+function area(j){
+  var d = j.dados || {};
+  $("vLogin").classList.add("hide"); $("vArea").classList.remove("hide");
+  $("aEmp").textContent = d.empresa || ""; $("aInfo").textContent = (j.email ? j.email + " · " : "") + "CNPJ/CPF " + (d.cnpj || "") + " · pagamento: " + (d.pagamento || "");
+  $("saidasCli").innerHTML = saidasHTML(d.placas || {});
+  var f = d.fracionado || [];
+  $("frc").innerHTML = f.length ? '<table><tr><th>Nº</th><th>Trecho</th><th>Modalidade</th><th>Saída</th><th>Caminhão</th><th>Situação</th><th class="r">Frete</th><th>Pagamento</th></tr>' + f.map(function(c){
+    return '<tr><td>' + c.numero + '</td><td>' + esc(c.origem) + ' → ' + esc(c.destino) + '<div class="mut">' + kg(c.peso_kg) + '</div></td><td>' + esc(c.modalidade) + '</td><td>' + br(c.saida) + '</td><td>' + esc(c.placa || "—") + '</td><td><span class="tag">' + esc(c.situacao) + '</span></td><td class="r g">' + R(c.frete) + '</td><td>' + esc(c.pagamento) + (c.cte ? '<div class="mut">CT-e ' + esc(c.cte) + '</div>' : '') + '</td></tr>';
+  }).join("") + '</table>' : '<div class="vazio">Nenhuma carga ainda. Cote em <a href="/fretes/">Fretes Disponíveis</a>.</div>';
+  var v = d.viagens || [], dc = d.documentos || [];
+  $("bxVg").classList.toggle("hide", !d.contrato); $("bxDoc").classList.toggle("hide", !d.contrato);
+  $("vg").innerHTML = v.length ? '<table><tr><th>Data</th><th>Caminhão</th><th>Rota</th><th>Dias</th><th>Situação</th></tr>' + v.map(function(x){ return '<tr><td>' + br(x.data) + '</td><td><b>' + esc(x.placa) + '</b></td><td>' + esc(x.rota) + '</td><td>' + x.dias + '</td><td><span class="tag">' + esc(x.situacao) + '</span></td></tr>'; }).join("") + '</table>' : '<div class="vazio">Nenhuma viagem nos últimos 90 dias.</div>';
+  $("doc").innerHTML = dc.length ? '<table><tr><th>Tipo</th><th>Nº</th><th>Data</th><th>Caminhão</th><th>Chave</th></tr>' + dc.map(function(x){ return '<tr><td>' + esc(x.tipo) + '</td><td>' + esc(x.numero) + '</td><td>' + br(x.data) + '</td><td>' + esc(x.placa) + '</td><td style="font-family:monospace;font-size:12px;word-break:break-all">' + esc(x.chave) + '</td></tr>'; }).join("") + '</table>' : '<div class="vazio">Nenhum documento nos últimos 90 dias.</div>';
+}
+function sair(){ if(TOK) post(API_C,{acao:"sair",token:TOK}); TOK = null; try { sessionStorage.removeItem("rf_cli_tok"); } catch(e){} $("vArea").classList.add("hide"); $("vLogin").classList.remove("hide"); }
+$("bSair").onclick = sair;
+if(TOK) post(API_C,{acao:"dados",token:TOK}).then(function(j){ if(j && j.ok) area(j); else sair(); }).catch(function(){});
+
+$("bCod").onclick = function(){
+  var cnpj = $("cnpj").value, email = $("email").value.trim(); $("msg").textContent = "";
+  if(String(cnpj).replace(/\D/g,"").length < 11 || !/@/.test(email)){ $("msg").textContent = "Informe o CNPJ/CPF e o e-mail."; return; }
+  $("bCod").disabled = true; $("msg").textContent = "Enviando…";
+  post(API_C,{acao:"pedir_codigo",cnpj:cnpj,email:email}).then(function(j){
+    $("bCod").disabled = false;
+    if(!j.ok){ $("msg").textContent = j.erro || "Não consegui enviar."; return; }
+    $("msg").textContent = j.mensagem || "";
+    if(j.status === "enviado"){ $("passo2").classList.remove("hide"); $("bCod").textContent = "Reenviar código"; $("cod").focus(); }
+  }).catch(function(){ $("bCod").disabled = false; $("msg").textContent = "Falha de conexão. Tente de novo."; });
+};
+$("bEntrar").onclick = function(){
+  $("bEntrar").disabled = true; $("msg").textContent = "";
+  post(API_C,{acao:"entrar",cnpj:$("cnpj").value,email:$("email").value.trim(),codigo:$("cod").value}).then(function(j){
+    $("bEntrar").disabled = false;
+    if(!j.ok){ $("msg").textContent = j.erro || "Não consegui entrar."; return; }
+    TOK = j.token; try { sessionStorage.setItem("rf_cli_tok", TOK); } catch(e){}
+    post(API_C,{acao:"dados",token:TOK}).then(function(k){ area(k && k.ok ? k : j); });
+  }).catch(function(){ $("bEntrar").disabled = false; $("msg").textContent = "Falha de conexão. Tente de novo."; });
+};
+$("bRast").onclick = function(){
+  $("rMsg").textContent = "Consultando…";
+  post(API_C,{acao:"rastrear",codigo:$("rCod").value,cnpj:$("rCnpj").value}).then(function(j){
+    if(!j.ok){ $("rMsg").textContent = j.erro || "Não encontrado."; return; }
+    var p = j.pedido;
+    $("rMsg").innerHTML = '<b>Nº ' + p.numero + '</b> · ' + esc(p.origem) + ' → ' + esc(p.destino) + ' · ' + kg(p.peso_kg) + '<br>Situação: <span class="tag">' + esc(p.situacao) + '</span>' + (p.saida ? ' · saída ' + br(p.saida) : '') + '<br>Frete ' + R(p.frete) + ' · ' + esc(p.pagamento) + '<div class="mut">A placa do caminhão aparece na Área do Cliente, com o código por e-mail.</div>';
+  }).catch(function(){ $("rMsg").textContent = "Falha de conexão."; });
+};
+</script>
+</body>
+</html>
