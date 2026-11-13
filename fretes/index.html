@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fretes Disponíveis – espaço em caminhão na Bahia | RF Logística</title>
 <meta name="description" content="Compre só o espaço que precisa em caminhões da RF Logística que já rodam a Bahia. Rotas de ida e volta, peso e volume livres, preço na hora.">
-<meta name="rf-sistema" content="RFL"><meta name="rf-pagina" content="fracionado-vitrine"><meta name="rf-versao" content="v878">
+<meta name="rf-sistema" content="RFL"><meta name="rf-pagina" content="fracionado-vitrine"><meta name="rf-versao" content="v879">
 <link rel="icon" href="/wp-content/uploads/2026/03/Logo-RF-Fav-150x150.png">
 <style>
 :root{--ouro:#D4A017;--ouro2:#F2C94C;--preto:#000;--c1:#0b0b0b;--c2:#141414;--t:#f2f2f2;--t2:#b9b9b9}
@@ -32,6 +32,18 @@ a{color:var(--ouro2)}
 .tag.conf{background:var(--ouro);color:#000}.tag.est{border:1px dashed var(--ouro);color:var(--ouro2)}
 .of .cid{color:var(--t2);font-size:12.5px;margin:6px 0}.of .l3{display:flex;gap:14px;flex-wrap:wrap;font-size:13px}
 .of .l3 b{color:var(--ouro2)}.barra{height:8px;border-radius:6px;background:#2a2a2a;overflow:hidden;margin-top:8px}.barra i{display:block;height:100%;background:linear-gradient(90deg,#555,#777)}
+.tl{margin:10px 0 4px}.tl .p{display:grid;grid-template-columns:22px 1fr auto;gap:8px;align-items:center;font-size:13px;padding:4px 0}
+.tl .dot{width:13px;height:13px;border-radius:50%;border:2px solid #555;background:#000;margin:0 auto}
+.tl .p.ok{color:#8a8a8a}.tl .p.ok .dot{background:#555;border-color:#555}
+.tl .p.agora{color:#fff;font-weight:700}.tl .p.agora .dot{background:var(--ouro);border-color:var(--ouro);box-shadow:0 0 0 4px rgba(212,160,23,.25)}
+.tl .r{color:var(--t2);font-size:12px;text-align:right;white-space:nowrap}.tl .p.ok .r{color:#777}
+.tl .cam{margin:4px 0 4px 30px;background:var(--ouro);color:#000;border-radius:6px;padding:4px 8px;font-weight:800;font-size:12.5px}
+.tl .mais{font-size:12px;color:var(--t2);padding:2px 0 2px 30px}
+.bau2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}.bau2 div{border:1px solid #2b2b2b;border-radius:10px;padding:7px 10px;font-size:12.5px;color:var(--t2)}
+.bau2 b{display:block;font-size:19px;color:var(--ouro2)}
+.barra2{height:10px;border-radius:6px;background:var(--ouro);overflow:hidden;margin-top:6px}.barra2 i{display:block;height:100%;background:#6d6d6d}
+.tag.rota{background:#fff;color:#000}.tag.prog{border:1px solid #777;color:#ddd}
+.fech{font-size:12px;color:#000;background:#d9d9d9;border-radius:6px;padding:3px 8px;display:inline-block;margin-top:7px;font-weight:700}
 .vazio{color:var(--t2);font-size:14px;padding:12px;border:1px dashed #333;border-radius:10px}
 #c3d{width:100%;height:290px;border-radius:12px;background:radial-gradient(ellipse at 50% 30%,#1c160a,#000 70%);display:block;touch-action:none;cursor:grab}
 .leg{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--t2);margin:8px 0 2px}.leg i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-2px}
@@ -162,19 +174,46 @@ function lista(){
   var l = OFS.filter(function(o){ return FILTRO==="todas" || o.sentido===FILTRO || (FILTRO==="confirmado" && o.disponivel.tipo==="confirmado"); });
   if(!l.length){ $("lista").innerHTML = '<div class="vazio">Nenhuma rota com espaço neste filtro agora. Faça a cotação mesmo assim — ela entra na nossa programação.</div>'; return; }
   $("lista").innerHTML = l.map(function(o){
+    if(o.em_rota) return cardRota(o);
     var conf = o.disponivel.tipo==="confirmado";
-    var cid = o.cidades.slice(0,10).join(" · ") + (o.cidades.length>10 ? " · +" + (o.cidades.length-10) : "");
-    return '<div class="of'+(SEL&&SEL.id===o.id?" sel":"")+'" data-id="'+o.id+'"><div class="l1"><span class="rota">'+(o.sentido==="ida"?"➡️ ":"⬅️ ")+esc(o.origem)+' → '+esc(o.destino)+'</span><span class="tag '+(conf?"conf":"est")+'">'+(conf?"Confirmado":"Estimado")+'</span></div>'
-      + '<div class="cid">'+esc(cid)+'</div><div class="l3"><span>Saída <b>'+br(o.data_saida)+'</b></span><span>Livre <b>'+kg(o.disponivel.kg)+'</b>'+(o.disponivel.m3?' · <b>'+String(o.disponivel.m3).replace(".",",")+' m³</b>':'')+'</span><span><b>'+esc(o.caminhao||o.veiculo)+'</b>'+(o.sentido==="ida"&&o.faixa_pct?' · espaço na ida '+o.faixa_pct[0]+'–'+o.faixa_pct[1]+'%':' · volta com o baú livre')+'</span>'+(o.a_partir?'<span class="ap">a partir de '+R(o.a_partir)+'</span>':'')+'</div>'
+    var eta = o.sentido === "ida" ? (o.cidades_eta||[]) : [];   // na volta a coleta é no mesmo dia em todas: a data vai na linha de baixo
+    var cid = eta.length ? eta.slice(0,12).map(function(e){ return e.cidade + " ~" + br(e.data).slice(0,5); }).join(" · ") + (eta.length>12 ? " · +" + (eta.length-12) : "")
+      : o.cidades.slice(0,10).join(" · ") + (o.cidades.length>10 ? " · +" + (o.cidades.length-10) : "");
+    return '<div class="of'+(SEL&&SEL.id===o.id?" sel":"")+'" data-id="'+o.id+'"><div class="l1"><span class="rota">'+(o.sentido==="ida"?"➡️ ":"⬅️ ")+esc(o.origem)+' → '+esc(o.destino)+'</span><span class="tag '+(o.proxima?"prog":(conf?"conf":"est"))+'">'+(o.proxima?"Próxima semana":(conf?"Confirmado":"Estimado"))+'</span></div>'
+      + '<div class="cid">'+esc(cid)+(eta.length?' <span style="color:#888">(dia estimado em cada cidade)</span>':'')+'</div><div class="l3"><span>'+(o.sentido==="ida"?'Sai de Feira <b>':'Coleta <b>')+br(o.data_saida)+'</b>'+(o.sentido==="volta"&&o.data_prev?' · chega em Feira <b>'+br(o.data_prev)+'</b>':'')+'</span><span>Livre <b>'+kg(o.disponivel.kg)+'</b>'+(o.disponivel.m3?' · <b>'+String(o.disponivel.m3).replace(".",",")+' m³</b>':'')+'</span><span><b>'+esc(o.caminhao||o.veiculo)+'</b>'+(o.sentido==="ida"&&o.faixa_pct?' · espaço na ida '+o.faixa_pct[0]+'–'+o.faixa_pct[1]+'%':' · volta com o baú livre')+'</span>'+(o.a_partir?'<span class="ap">a partir de '+R(o.a_partir)+'</span>':'')+(o.proxima?'<span>Programada — a mesma viagem desta semana</span>':'')+'</div>'
       + '<div class="barra"><i style="width:'+Math.round(o.ocupacao*100)+'%"></i></div></div>';
   }).join("");
   Array.prototype.forEach.call(document.querySelectorAll(".of"), function(el){ el.onclick = function(){ escolher(el.getAttribute("data-id")); }; });
+}
+/* caminhão em rota: cidades passadas (rastreador), onde está agora e o baú que vai esvaziando */
+function dh(t){ if(!t) return ""; var d=new Date(t); return ("0"+d.getDate()).slice(-2)+"/"+("0"+(d.getMonth()+1)).slice(-2)+" "+("0"+d.getHours()).slice(-2)+":"+("0"+d.getMinutes()).slice(-2); }
+var HOJE=(function(){var d=new Date();return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2);})();
+function cardRota(o){
+  var pg=o.progresso||[], pos=o.posicao||{}, feitas=pg.filter(function(e){return e.passou_em;}), falta=pg.filter(function(e){return !e.passou_em;});
+  var linha=function(e,cls){ var info=e.cidade+(e.entregas?' · '+e.entregas+(e.entregas>1?' entregas':' entrega'):'')+(e.volumes?' · '+e.volumes+' vol.':'');
+    return '<div class="p '+cls+'"><span class="dot"></span><span>'+esc(info)+'</span><span class="r">'+(e.passou_em?'passou '+dh(e.passou_em):(e.eta && e.eta>=HOJE?'~'+br(e.eta).slice(0,5):'a seguir'))+'</span></div>'; };
+  var h='<div class="p ok"><span class="dot"></span><span>Feira de Santana</span><span class="r">'+(pos.saiu_feira_em?'saiu '+dh(pos.saiu_feira_em):'saiu')+'</span></div>';
+  var ini=Math.max(0,feitas.length-2); if(ini>0) h+='<div class="mais">… mais '+ini+' cidade'+(ini>1?'s':'')+' já atendida'+(ini>1?'s':'')+'</div>';
+  feitas.slice(ini).forEach(function(e){ h+=linha(e,"ok"); });
+  h+='<div class="cam">🚚 Caminhão agora: '+esc(pos.texto||"em rota")+(pos.atualizado_em?' · atualizado '+dh(pos.atualizado_em):'')+(pos.desatualizada?' (sem sinal recente)':'')+'</div>';
+  falta.slice(0,6).forEach(function(e,i){ h+=linha(e,i===0?"agora":""); });
+  if(falta.length>6) h+='<div class="mais">+ '+(falta.length-6)+' cidades</div>';
+  var cap=o.cap_kg||0, livre=o.disponivel.kg, pl=cap?Math.round(livre/cap*100):0;
+  var conf=o.disponivel.tipo==="confirmado";
+  return '<div class="of'+(SEL&&SEL.id===o.id?" sel":"")+'" data-id="'+o.id+'"><div class="l1"><span class="rota">'+esc(o.caminhao||"Caminhão")+' · Feira → '+esc(o.destino)+'</span><span class="tag rota">Em rota</span></div>'
+    + '<div class="fech">Embarque em Feira encerrado'+(pos.saiu_feira_em?' — saiu do raio de Feira '+dh(pos.saiu_feira_em):'')+'</div>'
+    + '<div class="tl">'+h+'</div>'
+    + '<div class="bau2"><div>Baú ao sair de Feira<b>'+(o.carga_saida_pct!=null?o.carga_saida_pct+'% ocupado':'—')+'</b>'+(o.carga_estimada?'estimado':feitas.length+falta.length+' cidades')+'</div>'
+    + '<div>Baú agora'+(conf?' (confirmado)':'')+'<b>'+pl+'% livre</b>≈ '+kg(livre)+(o.disponivel.m3?' · '+String(o.disponivel.m3).replace(".",",")+' m³':'')+'</div></div>'
+    + '<div class="barra2"><i style="width:'+(100-pl)+'%"></i></div>'
+    + '<div class="l3" style="margin-top:7px"><span>Espaço para <b>coleta nas próximas cidades</b> e para a <b>volta</b></span>'+(o.a_partir?'<span class="ap">a partir de '+R(o.a_partir)+'</span>':'')+'</div></div>';
 }
 function escolher(id){
   SEL = OFS.find(function(o){return o.id===id;}) || null; lista();
   if(!SEL) return;
   $("oferta").value = SEL.id;
-  if(SEL.sentido==="ida"){ $("origem").value = "Feira de Santana/BA"; if(!$("destino").value) $("destino").value = SEL.destino; }
+  if(SEL.em_rota){ var fl=(SEL.progresso||[]).filter(function(e){return !e.passou_em;}); if(fl.length){ $("origem").value = fl[0].cidade+"/BA"; $("destino").value = fl[fl.length-1].cidade+"/BA"; } }
+  else if(SEL.sentido==="ida"){ $("origem").value = "Feira de Santana/BA"; if(!$("destino").value) $("destino").value = SEL.destino; }
   else { if(!$("origem").value || /feira de santana/i.test($("origem").value)) $("origem").value = SEL.origem; $("destino").value = "Feira de Santana/BA"; }
   $("t3d").textContent = "Baú — " + SEL.origem + " → " + SEL.destino + " (" + br(SEL.data_saida) + ")";
   bau(SEL, Number($("peso").value||0), Number(String($("m3").value||0).replace(",",".")));
