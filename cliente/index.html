@@ -105,7 +105,8 @@ function saidasHTML(placas){
     return '<tr><td><b>' + esc(pl || o.caminhao) + '</b>' + (pl ? ' · ' + esc(o.caminhao) : '') + '</td><td>' + esc(o.origem) + ' → ' + esc(o.destino) + '<div class="mut">' + (o.sentido === "ida" ? "ida" : "volta") + ' · espaço ' + esc(o.disponivel.tipo) + '</div></td><td>' + br(o.data_saida) + '</td><td class="r g">' + kg(o.disponivel.kg) + '</td><td class="r">' + (o.a_partir ? R(o.a_partir) : "—") + '</td></tr>';
   }).join("") + '</table>';
 }
-post(API_V,{acao:"ofertas"}).then(function(j){ OFS = (j && j.ofertas) || []; $("saidasPub").innerHTML = saidasHTML(null); }).catch(function(){ $("saidasPub").innerHTML = '<div class="vazio">Não consegui carregar as saídas agora.</div>'; });
+post(API_V,{acao:"ofertas"}).then(function(j){ OFS = ((j && j.ofertas) || []).filter(function(o){ return !o.em_rota && !o.proxima; });   // só saídas reais que ainda vão sair (caminhão em rota fica em Fretes Disponíveis)
+ $("saidasPub").innerHTML = saidasHTML(null); }).catch(function(){ $("saidasPub").innerHTML = '<div class="vazio">Não consegui carregar as saídas agora.</div>'; });
 
 function area(j){
   var d = j.dados || {};
